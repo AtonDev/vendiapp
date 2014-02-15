@@ -1,5 +1,6 @@
 Vendiwebapp::Application.routes.draw do
 
+  get "users/new"
   get "items/index"
   get "welcome/index"
 
