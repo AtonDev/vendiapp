@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
+  	@user = User.find(1)
   end
 
   def create
-  	@user = User.new(user_params)
+  	@user = User.new(user_params[:id])
   	if @user.save
   		redirect_to @user
   	else
