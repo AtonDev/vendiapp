@@ -1,5 +1,7 @@
 Vendiwebapp::Application.routes.draw do
 
+  resources :users
+
   get "users/new"
   get "items/index"
   get "welcome/index"
@@ -16,7 +18,7 @@ Vendiwebapp::Application.routes.draw do
   match '/items' => 'items#index', :as => :items, via: [:get]
 
 
-  match "/profile" => 'user#show', :as => :profile, via: [:get]
+  match "/profile" => 'users#show', :as => :profile, via: [:get]
 
 
   match '/about' => 'welcome#about_us', :as => :about_us, via: [:get]

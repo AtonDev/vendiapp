@@ -48,6 +48,10 @@ group :production do
 	gem 'rails_12factor'
 end
 
+
+#hash function for psw-digest
+gem 'bcrypt-ruby', '~>3.1.2'
+
 #Use bootstrap
 gem 'bootstrap-sass'
 # gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
