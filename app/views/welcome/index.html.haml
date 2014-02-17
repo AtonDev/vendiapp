@@ -5,21 +5,25 @@
 			%h1#title Vendi
 			%hr.h-line/
 			.about-app
-				%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, labore, similique voluptatibus illo amet optio maiores id? Laboriosam, vero libero ipsum sint facilis nobis porro iste. Quaerat, eaque, beatae, molestias, quae assumenda nobis odio voluptatum itaque iure aut amet at neque quisquam aliquid eum deserunt doloremque officia accusantium deleniti labore.
+				%p 
+					%b Consider the following story:  
+					Pat is busy and has several unwanted items to sell, but doesn’t have the time or inclination to do the selling.  Sam makes a living selling online but searches through yard sales and flea markets struggling to find items to sell.  Enter Vendi. Vendi facilitates the sale of Pat’s stuff through Sam. Sam makes a commission and Pat’s stuff gets sold at a fair price; everyone wins.
 			%hr.h-line/
 			.about-app
-				%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, nemo, quo, maiores velit magnam perferendis dolores vitae harum eius ipsam officiis beatae ullam itaque sapiente deserunt quia porro expedita saepe voluptates aperiam? Voluptatem, rem libero rerum eum laboriosam voluptate illo. 
+				%p 
+					%b Our Vision:
+					We desire a future where there is little friction in the recycling of goods from one individual to another.  To make this a reality we are simplifying the process of selling one’s unwanted items, while creating income for others.  Lets realize this vision together. 
 			%hr.h-line
 			.call
-				%h2 Which of two experiences are you looking for?
+				%h2 Who do you identify with in the story above?
 
-				.col-sm-6.text-center
-					%p If you are interested in the reselling experience help us determine what matters to you.
-					=button_to "Continue", survey_s_path, {:method => "get", class: "btn btn-primary"}
-				.col-sm-6.text-center
-					%p If you want help selling your items, help us determine what matters to you. 
-					=button_to "Continue", survey_o_path, {:method => "get", class: "btn btn-primary"}
-			%hr.h-line
+				.col-sm-4.col-sm-offset-2.text-center
+					-#%p If you are interested in the reselling experience help us determine what matters to you.
+					=button_to "Sam", new_user_path, {:method => "get", class: "btn btn-primary"}
+				.col-sm-4.text-center
+					-#%p If you want help selling your items, help us determine what matters to you. 
+					=button_to "Pat",  {:method => "get", class: "btn btn-primary"}
+
 			
 
 	

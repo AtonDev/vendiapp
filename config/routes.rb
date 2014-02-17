@@ -2,7 +2,6 @@ Vendiwebapp::Application.routes.draw do
 
   resources :users
 
-  get "users/new"
   get "items/index"
   get "welcome/index"
 
@@ -11,9 +10,6 @@ Vendiwebapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
-  match '/survey-s' => 'survey_pages#resellers', :as => :survey_s, via: [:get]
-  match '/survey-o' => 'survey_pages#owners', :as => :survey_o, via: [:get]
 
   match '/items' => 'items#index', :as => :items, via: [:get]
 
