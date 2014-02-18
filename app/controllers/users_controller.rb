@@ -4,12 +4,14 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(1)
+  	@user = @current_user
   end
 
   def create
-  	@user = User.new(user_params[:id])
+  	@user = User.new(user_params)
   	if @user.save
+  		sign_in @user
+  		flash[:success] = "Welcome to Vendi"
   		redirect_to @user
   	else
   		render 'new'

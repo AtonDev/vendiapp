@@ -13,10 +13,14 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         /%li.active
-        %li
-          = link_to "Profile", "#{profile_path}"
-        %li
-          = link_to "Items", "#{items_path}"
+        -if signed_in?
+          %li
+            = link_to "Profile", profile_path(current_user)
+          %li
+            = link_to "Items", items_path
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{href: "#"} Login
+          -if signed_in?
+            = link_to "Sign Out", signout_path
+          -else
+            = link_to "Sign In", signin_path

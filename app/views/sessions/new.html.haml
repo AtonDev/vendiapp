@@ -1,0 +1,17 @@
+-provide :title, "Sign In"
+.row
+	.col-sm-6.col-sm-offset-3
+		%h1 Sign In
+		=form_for(:session, url: sessions_path) do |f|
+			.form-group
+				=f.label :email
+				=f.text_field :email, {class: "form-control"}
+
+			.form-group
+				=f.label :password
+				=f.password_field :password, {class: "form-control"}
+
+			=f.submit "Sign In", {class: "btn btn-large btn-primary"}
+			%p
+				New user? 
+				= link_to "Sign up now!", signup_path
