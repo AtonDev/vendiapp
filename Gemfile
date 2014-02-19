@@ -39,22 +39,21 @@ gem 'haml-rails', '~> 0.5.3'
 
 
 group :development do
-	gem 'paperclip'
-	gem 'aws-sdk'
+
 end
 
 
 group :production do
 	#Sets assets in production
 	gem 'rails_12factor'
-	#For AWS storage
-	gem 'paperclip'
-	gem 'aws-sdk'
+
 end
 
 
 
-
+#For AWS storage
+gem 'paperclip'
+gem 'aws-sdk'
 
 #hash function for psw-digest
 gem 'bcrypt-ruby', '~>3.1.2'

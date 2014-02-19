@@ -14,12 +14,14 @@
 								%li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
 							/ Wrapper for slides
 							.carousel-inner
-								.item.active
-									%img{alt: "...", src:image_path("arturo.png")}/
-								.item
-									%img{alt: "...", src:image_path("arturo.png")}/
-								.item
-									%img{alt: "...", src:image_path("arturo.png")}/
+								-item.images.each do |image, index|
+								-if index == 0
+									.item.active
+										%img{alt: "...", src:image.photo.url(:medium)}
+								-else
+									.item
+										%img{alt: "...", src:image.photo.url(:medium)}
+								
 
 						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "popover", type: "button"}
 							%h1.item-title= item.title
