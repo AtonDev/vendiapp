@@ -15,12 +15,12 @@
 							/ Wrapper for slides
 							.carousel-inner
 								-item.images.each do |image, index|
-								-if index == 0
-									.item.active
-										%img{alt: "...", src:image.photo.url(:medium)}
-								-else
-									.item
-										%img{alt: "...", src:image.photo.url(:medium)}
+									-if index == 0
+										.item.active
+											=image_tag image.photo.url(:medium)
+									-else
+										.item
+											=image_tag image.photo.url(:medium)
 								
 
 						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "popover", type: "button"}
