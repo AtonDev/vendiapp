@@ -26,4 +26,14 @@ Vendiwebapp::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  #configuratoin for paperclip to work with aws
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['vendistorage'],
+      :access_key_id => ENV['AKIAJKP4YL77AD34ZJBA'],
+      :secret_access_key => ENV['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']
+    }
+  }
 end

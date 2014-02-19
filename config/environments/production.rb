@@ -77,4 +77,17 @@ Vendiwebapp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  #configuratoin for paperclip to work with aws
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['vendistorage'],
+      :access_key_id => ENV['AKIAJKP4YL77AD34ZJBA'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
+
+
 end
