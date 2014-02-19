@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_and_belongs_to_many :items
+	has_and_belongs_to_many :items, join_table: :items_users
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
@@ -17,6 +17,16 @@ class User < ActiveRecord::Base
 
 	def User.encrypt(token)
 		Digest::SHA1.hexdigest(token.to_s)
+	end
+
+	def add_item item_id
+		unless item_id.nil?
+			item = Item.find(item_id)
+			unless self.items.include? item
+				self.items << item
+				self.save 
+			end
+		end
 	end
 
 	private
