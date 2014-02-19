@@ -36,4 +36,7 @@ Vendiwebapp::Application.configure do
       :secret_access_key => ENV['kAJDzdQEzHRKvYnuYFWRn76t8AJRJL4RpDquAhE1']
     }
   }
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000'}
+
 end

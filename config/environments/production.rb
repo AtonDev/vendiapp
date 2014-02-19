@@ -78,6 +78,7 @@ Vendiwebapp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+
   #configuratoin for paperclip to work with aws
   config.paperclip_defaults = {
     :storage => :s3,
@@ -89,5 +90,7 @@ Vendiwebapp::Application.configure do
   }
 
 
+
+  config.action_mailer.default_url_options = { :host => 'www.vendistaging.herokuapp.com' }
 
 end

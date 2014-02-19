@@ -49,6 +49,9 @@ group :production do
 
 end
 
+#handles authetication for application
+gem 'devise'
+
 
 
 #For AWS storage
