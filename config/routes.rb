@@ -1,7 +1,8 @@
 Vendiwebapp::Application.routes.draw do
 
+  devise_for :users
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  #resources :sessions, only: [:new, :create, :destroy]
 
 
   get "items/index"
@@ -13,8 +14,8 @@ Vendiwebapp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  #match '/signin',  to: 'sessions#new',         via: 'get'
+  #match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/items',   to: 'items#index', :as => :items, via: [:get]
   match "/profile", to: 'users#show', :as => :profile, via: [:get]
   match '/about',   to: 'welcome#about_us', :as => :about_us, via: [:get]
