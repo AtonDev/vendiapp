@@ -48,6 +48,9 @@ group :production do
 	gem 'rails_12factor'
 end
 
+#handles authetication for application
+gem 'devise'
+
 
 #hash function for psw-digest
 gem 'bcrypt-ruby', '~>3.1.2'
