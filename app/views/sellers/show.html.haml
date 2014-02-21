@@ -1,0 +1,39 @@
+.container-fluid
+	.row
+		.col-lg-8.col-sm-offset-2
+
+			%h1
+				Hello 
+				= current_seller.email
+			%p
+				The following is your list of items you committed to sell.
+
+			-current_seller.items.each do |item|
+				.col-lg-3
+					#my-carousel.carousel.slide{"data-ride" => "carousel"}
+						/ Indicators
+						%ol.carousel-indicators
+							%li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+							%li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+							%li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+						/ Wrapper for slides
+						.carousel-inner
+							-item.images do |img, idx|
+								-if idx == 0
+									.item.active
+										=image_tag img.photo.url(:medium)
+								-else 
+									.item
+										=image_tag img.photo.url(:medium)
+					%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "popover", type: "button"}
+						%h1.item-title= item.title
+						#popover_content_wrapper{style: "display: none !important"}
+							%h3 Description:
+							%p= item.description								
+							%h3 Tell us at what price you think you can sell this item after fees?
+							%form.form-inline{action: ""}
+								.form-group
+									%label.sr-only{for: "price"} Price submission.
+									- placeholder = (item.price.nil? ? "Price" : item.price)
+									%input#price.form-control{placeholder: "Price", type: "text"}
+									%input.btn.btn-default{type: "submit"}
