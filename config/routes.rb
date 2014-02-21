@@ -1,5 +1,7 @@
 Vendiwebapp::Application.routes.draw do
 
+  devise_for :owners
+  devise_for :sellers
   get "/profile",   to: 'sellers#show', :as => :profile
 
   get "items/index"
