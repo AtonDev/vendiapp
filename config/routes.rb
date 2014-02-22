@@ -1,6 +1,7 @@
 Vendiwebapp::Application.routes.draw do
 
 
+  get "mobile/show"
   devise_for :sellers
   get "/profile",   to: 'sellers#show', :as => :profile
 
