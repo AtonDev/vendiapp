@@ -4,17 +4,20 @@
 	.row
 		.col-lg-10.col-lg-offset-1
 			.row
-				-@items.each do |item|
+				-@items.each_with_index do |item, carousel_idx|
 					.col-lg-3
 						#my-carousel.carousel.slide{"data-ride" => "carousel"}
 							/ Indicators
 							%ol.carousel-indicators
-								%li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-								%li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-								%li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+								-item.images.each_with_index do |image, index|
+									-if index == 0
+										%li.active{"data-slide-to" => "0", "data-target" => "#my-carousel"}
+									-else
+										%li{"data-slide-to" => "1", "data-target" => "#my_carousel"}
+								
 							/ Wrapper for slides
 							.carousel-inner
-								-item.images.each do |image, index|
+								-item.images.each_with_index do |image, index|
 									-if index == 0
 										.item.active
 											=image_tag image.photo.url(:medium)
@@ -27,7 +30,8 @@
 							%h1.item-title= item.title
 							#popover_content_wrapper{style: "display: none !important"}
 								%h3 Description:
-								%p= item.description								
+								%p
+									=item.description								
 								%h3 Tell us at what price you think you can sell this item after fees?
 								%form.form-inline{action: ""}
 									.form-group
