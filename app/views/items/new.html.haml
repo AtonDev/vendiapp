@@ -1,0 +1,23 @@
+.new_items
+	.container-fluid
+		.row
+			.col-lg-4.col-lg-offset-4
+				%h2.sign-in-out Add a new Item
+				= form_for @item do |f|
+					.form-group
+						= f.label :title
+						%br/
+						= f.text_field :title, :autofocus => true, :class =>"form-control"
+					.form-group
+						= f.label :condition
+						%br/
+						= f.text_field :condition, :autofocus => true, :class =>"form-control"
+					.form-group
+						= f.label :description
+						%br/
+						= f.text_area :description, :class =>"form-control", size: "60x4"
+					.form-group
+						= f.label :photo
+						%br/
+						= f.file_field :photo, :class =>""
+					%div= f.submit "Submit Item", :class =>"btn btn-primary ", :style => "margin-bottom: 8px;"

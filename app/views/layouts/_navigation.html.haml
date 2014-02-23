@@ -18,6 +18,9 @@
             = link_to "Profile", profile_path
           %li
             = link_to "Items", items_path
+          -if current_seller.email == "pacifico.arturo@gmail.com"
+            %li
+              = link_to "New Item", new_item_path
       %ul.nav.navbar-nav.navbar-right
         %li
           -if signed_in?

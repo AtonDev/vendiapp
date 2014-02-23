@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.string :condition
       t.string :description
-      t.boolean :has_arrived?
+      t.boolean :has_arrived
       t.belongs_to :owner
       t.belongs_to :seller
       t.timestamps

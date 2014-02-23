@@ -1,15 +1,17 @@
 Vendiwebapp::Application.routes.draw do
 
 
-  get "mobile/show"
+  
   devise_for :sellers
-  get "/profile",   to: 'sellers#show', :as => :profile
 
-  get "items/index"
+  get "/profile",   to: 'sellers#show', :as => :profile
   get "welcome/index"
+  get "mobile/show"
 
   root 'welcome#index'
-  match '/items',   to: 'items#index', :as => :items, via: [:get]
+
   match '/about',   to: 'welcome#about_us', :as => :about_us, via: [:get]
+
+  resources :items
 
 end

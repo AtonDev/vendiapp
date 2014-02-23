@@ -32,7 +32,7 @@
 								%form.form-inline{action: ""}
 									.form-group
 										%label.sr-only{for: "price"} Price submission.
-										- placeholder = (item.price.nil? ? "Price" : item.price)
+										- placeholder = (item.price_proposed.nil? ? "Price" : item.price_proposed)
 										%input#price.form-control{placeholder: "Price", type: "text"}
 										%input.btn.btn-default{type: "submit"}
 				

@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20140221034029) do
 
   create_table "images", force: true do |t|
     t.integer  "item_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140221034029) do
     t.string   "title"
     t.string   "condition"
     t.string   "description"
-    t.boolean  "has_arrived?"
+    t.boolean  "has_arrived"
     t.integer  "owner_id"
     t.integer  "seller_id"
     t.datetime "created_at"
