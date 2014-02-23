@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
   		img = Image.create(image_params)
   		if img.save
   			@item.images << img
-  			flash[:success] = "The item was successfully uploaded" if @item.save
-  		end
+  			flash.now[:success] = "The item was successfully uploaded"
+      end
   	else
   		flash[:error] = "Something went wrong"
   		render 'new'
