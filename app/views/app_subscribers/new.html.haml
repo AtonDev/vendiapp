@@ -11,10 +11,10 @@
 				%h3
 					Notify Me when it's ready!
 			=form_for @subscriber  do |f|
-				.col-sm-6.col-md-offset-3{:style => "margin-bottom: 25px;margin-top: 15px;"}
+				.col-sm-6.col-md-offset-3.form-group{:style => "margin-bottom: 25px;margin-top: 15px;"}
 					=f.label :email, :email, :class => "sr-only"
-					=f.email_field :email,  :placeholder => "Your Email", :class => "form-control", :style => "text-align: center;" 
+					=f.email_field :email,  :placeholder => "Your Email", :class => "form-control", :style => "text-align: center;", :required => true
 				%hr.row
 				.col-sm-6.col-md-offset-3
-					=f.submit  "Get Notified", :class => "btn btn-primary center-block", :style => "width:100%; margin-bottom:50px"
+					=f.submit  "Get Notified", :class => "btn btn-primary btn-lg center-block", :style => "width:100%; margin-bottom:50px"
 			

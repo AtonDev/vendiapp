@@ -8,13 +8,13 @@ class AppSubscribersController < ApplicationController
 	end
 
 	def create
-		subscriber = AppSubscriber.new email
-		if subscriber.save
+		@subscriber = AppSubscriber.new email
+		if @subscriber.save
 			flash.now[:success] = "You have successfuly subscribed."
 			render 'show'
 		else
-			flash[:error] = "Something went wrong"
-			render 'new'
+			flash[:error] = "Something went rwong. Did you input your email incorrectly? Did you already subscribe?"
+			render action: 'new'
 		end
 	end
 
