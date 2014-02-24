@@ -6,29 +6,31 @@
 			.row
 				-@items.each_with_index do |item, carousel_idx|
 					.col-md-3
-						#my-carousel.carousel.slide{"data-ride" => "carousel"}
-							/ Indicators
-							%ol.carousel-indicators
-								-item.images.each_with_index do |image, index|
-									-if index == 0
-										%li.active{"data-slide-to" => "0", "data-target" => "#my-carousel"}
-									-else
-										%li{"data-slide-to" => "1", "data-target" => "#my_carousel"}
-								
-							/ Wrapper for slides
-							.carousel-inner
-								-item.images.each_with_index do |image, index|
-									-if index == 0
-										.item.active
-											=image_tag image.photo.url(:medium), :class => "img-rounded"
-									-else
-										.item
-											=image_tag image.photo.url(:medium), :class => "img-rounded"
-								
-						-#this indentation level for popover
 						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#myModal", type: "button"}
 							%h1.item-title
 								= item.title
+							#my-carousel.carousel.slide{"data-ride" => "carousel"}
+								/ Indicators
+								%ol.carousel-indicators
+									-item.images.each_with_index do |image, index|
+										-if index == 0
+											%li.active{"data-slide-to" => "0", "data-target" => "#my-carousel"}
+										-else
+											%li{"data-slide-to" => "1", "data-target" => "#my_carousel"}
+									
+								/ Wrapper for slides
+								.carousel-inner
+									-item.images.each_with_index do |image, index|
+										-if index == 0
+											.item.active
+												=image_tag image.photo.url(:medium), :class => "img-rounded"
+										-else
+											.item
+												=image_tag image.photo.url(:medium), :class => "img-rounded"
+									
+						-#this indentation level for popover
+						
+							
 					#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 						.modal-dialog.modal-lg
 							.modal-content
@@ -73,7 +75,7 @@
 
 
 	$('.carousel').carousel({
-	interval: 2000
+	interval: 3000
 	});
 
 
