@@ -1,4 +1,8 @@
 class AppSubscribersController < ApplicationController
+	
+	def show
+	end
+
 	def new
 		@subscriber = AppSubscriber.new
 	end
@@ -7,6 +11,7 @@ class AppSubscribersController < ApplicationController
 		subscriber = AppSubscriber.new email
 		if subscriber.save
 			flash.now[:success] = "You have successfuly subscribed."
+			render 'show'
 		else
 			flash[:error] = "Something went wrong"
 			render 'new'

@@ -14,15 +14,9 @@ class ItemsController < ApplicationController
   def create
 
   	@item = Item.new(item_params)
-    success = @item.save
-  	if success
-      #img = Image.create(item_params[:images_attributes])
-      #success = img.save
-      #if success
-      #  @item.images << img
-      #end
-      #success = @item.save
-      flash.now[:success] = "The item was succesfully uploaded." if success
+  	if @item.save
+      flash.now[:success] = "The item was succesfully uploaded." 
+      render 'show'
   	else
   		flash[:error] = "Something went wrong"
   		render 'new'
