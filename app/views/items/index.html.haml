@@ -2,10 +2,10 @@
 =provide :title, 'Items'
 .container-fluid
 	.row
-		.col-lg-10.col-lg-offset-1
+		.col-md-10.col-md-offset-1
 			.row
 				-@items.each_with_index do |item, carousel_idx|
-					.col-lg-3
+					.col-md-3
 						#my-carousel.carousel.slide{"data-ride" => "carousel"}
 							/ Indicators
 							%ol.carousel-indicators
@@ -20,39 +20,49 @@
 								-item.images.each_with_index do |image, index|
 									-if index == 0
 										.item.active
-											=image_tag image.photo.url(:medium)
+											=image_tag image.photo.url(:medium), :class => "img-rounded"
 									-else
 										.item
-											=image_tag image.photo.url(:medium)
+											=image_tag image.photo.url(:medium), :class => "img-rounded"
 								
+						-#this indentation level for popover
+						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#myModal", type: "button"}
+							%h1.item-title
+								= item.title
+					#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+						.modal-dialog.modal-lg
+							.modal-content
+								.modal-header
+									%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+									%h4#myModalLabel.modal-title 
+										=item.title
+								.modal-body
+									.row
+										.col-md-10.col-md-offset-1
+											%h4 Description
+											%p
+												= item.description
+											%h4 Images
+											-item.images.each do |img|
+												.col-md-4
+													=image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
+											%h4 Price
+											%p Please submit the price at which you believe youcan sell this item for after fees. There are other sellers that are going to submit a price for this item. When 2 days pass from the first price submission, we are going to give the right to sell the item to the higher bidder.
+											%p If you are the higher bidder you have the right to sell the item for week. If you do so, you are responsible to submit to vendi 90% of the price you intially proposed, for the item to be shipped. 
+											%p The more items you sell, the higher you will get. If you have a high score, you will access more to premium items (ie items coming from reliable owners that have high value)
+											
+								.modal-footer
+									%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+									%button.btn.btn-primary{:type => "button"} Save changes
 
-						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "popover", type: "button"}
-							%h1.item-title= item.title
-							#popover_content_wrapper{style: "display: none !important;"}
-								.item-details
-									%h3 Description:
-									%p
-										=item.description								
-									%h3 Tell us at what price you think you can sell this item for after fees?
-									= form_for item, :html => {:class => "form-inline"} do |f|
-										= f.label :Price, :class => "sr-only"
-										= f.number_field :price_proposed, :class => "form-control",
-											:placeholder => "Price", :style => "width: 130px;"
-										= f.submit "Submit", :class =>"btn btn-primary ", :style => "margin-left:11px;"
-				
 
 %script
 	$(document).ready(function() {
+
 
 	$('.carousel').carousel({
 	interval: 2000
 	});
 
-	$('.item-btn').popover({ 
-	html : true, 
-	content: function() {
-	return $('#popover_content_wrapper').html();
-	}
-	});
 
 	});
