@@ -28,17 +28,17 @@
 
 						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "popover", type: "button"}
 							%h1.item-title= item.title
-							#popover_content_wrapper{style: "display: none !important"}
-								%h3 Description:
-								%p
-									=item.description								
-								%h3 Tell us at what price you think you can sell this item after fees?
-								%form.form-inline{action: ""}
-									.form-group
-										%label.sr-only{for: "price"} Price submission.
-										- placeholder = (item.price_proposed.nil? ? "Price" : item.price_proposed)
-										%input#price.form-control{placeholder: "Price", type: "text"}
-										%input.btn.btn-default{type: "submit"}
+							#popover_content_wrapper{style: "display: none !important;"}
+								.item-details
+									%h3 Description:
+									%p
+										=item.description								
+									%h3 Tell us at what price you think you can sell this item for after fees?
+									= form_for item, :html => {:class => "form-inline"} do |f|
+										= f.label :Price, :class => "sr-only"
+										= f.number_field :price_proposed, :class => "form-control",
+											:placeholder => "Price", :style => "width: 130px;"
+										= f.submit "Submit", :class =>"btn btn-primary ", :style => "margin-left:11px;"
 				
 
 %script
