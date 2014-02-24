@@ -5,16 +5,24 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
+    @images = []
+    @images << Image.new
+    @images << Image.new
+    @images << Image.new
   end
 
   def create
+
   	@item = Item.new(item_params)
-  	if @item.save
-  		img = Image.create(image_params)
-  		if img.save
-  			@item.images << img
-  			flash.now[:success] = "The item was successfully uploaded"
-      end
+    success = @item.save
+  	if success
+      #img = Image.create(item_params[:images_attributes])
+      #success = img.save
+      #if success
+      #  @item.images << img
+      #end
+      #success = @item.save
+      flash.now[:success] = "The item was succesfully uploaded." if success
   	else
   		flash[:error] = "Something went wrong"
   		render 'new'
@@ -35,10 +43,8 @@ class ItemsController < ApplicationController
 
   private
   	def item_params
-  		params.require(:item).permit(:title, :description, :condition)
+  		params.require(:item).permit(:title, :description, :condition, 
+        :images_attributes => [:photo])
   	end
 
-  	def image_params
-  		params.require(:item).permit(:photo)
-  	end
 end

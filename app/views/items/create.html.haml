@@ -1,1 +1,20 @@
-%h1 item created
+.create-items
+	.container-fluid
+		.row
+			.col-lg-6.col-lg-offset-3
+				%h2 You have added the following item.
+				%h3 Title
+				%p 
+					=@item.title
+				%h3 Description
+				%p 
+					=@item.description
+				%h3 Condition
+				%p 
+					=@item.condition
+				%h3 Images
+		.row
+			.col-lg-offset-3
+				-@item.images.each_with_index do |img, idx|
+					.col-lg-2
+						=image_tag img.photo.url(:thumb)
