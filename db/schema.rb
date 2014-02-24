@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221034029) do
+ActiveRecord::Schema.define(version: 20140224185257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "app_subscribers", force: true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "app_subscribers", ["email"], name: "index_app_subscribers_on_email", unique: true, using: :btree
 
   create_table "images", force: true do |t|
     t.integer  "item_id"

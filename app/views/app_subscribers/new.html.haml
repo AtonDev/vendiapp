@@ -1,0 +1,20 @@
+=provide :title, 'Subscribe'
+.container-fluid
+	.row
+		.col-sm-8.col-md-offset-2
+			%h1#title Vendi
+			%hr
+			.mobile-lp
+				%p
+					The app is not currently ready. We are working hard to make it happen as soon as possible.
+				%hr
+				%h3
+					Notify Me when it's ready!
+			=form_for @subscriber  do |f|
+				.col-sm-6.col-md-offset-3.form-group{:style => "margin-bottom: 25px;margin-top: 15px;"}
+					=f.label :email, :email, :class => "sr-only"
+					=f.email_field :email,  :placeholder => "Your Email", :class => "form-control", :style => "text-align: center;", :required => true
+				%hr.row
+				.col-sm-6.col-md-offset-3
+					=f.submit  "Get Notified", :class => "btn btn-primary btn-lg center-block", :style => "width:100%; margin-bottom:50px"
+			
