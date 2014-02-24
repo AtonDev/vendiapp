@@ -1,2 +1,20 @@
-%h1 Great! you can find the app at. Or Sorry the app is not ready yet.
-%p % Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, quae, iure, officiis non culpa accusantium nobis dolore earum sed explicabo asperiores natus ipsa necessitatibus quas illo doloribus velit ducimus illum unde dolorem vero molestiae voluptatem ullam. Omnis rerum rem saepe.
+=provide :title, 'Mobile'
+.container-fluid
+	.row
+		.col-md-6.col-md-offset-3
+			%h1#title Vendi
+			%hr
+			.mobile-lp
+				%p
+					The app is not currently ready. We are working hard to make it happen as soon as possible.
+				%hr
+				%h3
+					Notify Me when it's ready!
+			=form_tag :class => "" do
+				.col-sm-6.col-md-offset-3{:style => "margin-bottom: 20px;"}
+					=label_tag :email, :email, :class => "sr-only"
+					=email_field_tag :email, :email, :placeholder => "Your Email", :class => "form-control"
+			%hr.row
+				.col-sm-6.col-md-offset-3
+					=submit_tag  "Get Notified", :class => "btn btn-primary center-block", :style => "width:100%; margin-bottom:50px"
+			
