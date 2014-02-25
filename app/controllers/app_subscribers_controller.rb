@@ -13,7 +13,7 @@ class AppSubscribersController < ApplicationController
 			flash.now[:success] = "You have successfuly subscribed."
 			render 'show'
 		else
-			flash[:error] = "Something went rwong. Did you input your email incorrectly? Did you already subscribe?"
+			flash[:danger] = "Something went wrong. Did you input your email incorrectly? Did you already subscribe?"
 			render action: 'new'
 		end
 	end

@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
       flash.now[:success] = "The item was succesfully uploaded." 
       render 'show'
   	else
-  		flash[:error] = "Something went wrong"
+  		flash[:danger] = "Something went wrong"
   		render 'new'
   	end
   end
