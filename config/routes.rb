@@ -5,7 +5,7 @@ Vendiwebapp::Application.routes.draw do
 	resources :app_subscribers, :only => [:create, :new]
 	resources :items
 
-	get 'commit/' => 'sellers#commit_item', :as => :commit_item
+	get 'accept_response/' => 'sellers#proposal_response', :as => :proposal_response
 	get 'new_proposal' => 'sellers#new_price_proposal', :as => :new_price_proposal
 
 	get "/profile",   to: 'sellers#show', :as => :profile

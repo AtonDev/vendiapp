@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(item_id)
   end
 
   def update
@@ -40,6 +41,10 @@ class ItemsController < ApplicationController
   		params.require(:item).permit(:title, :description, :condition, 
         :images_attributes => [:photo])
   	end
+
+    def item_id
+      params.require(:id)
+    end
 
 
 end

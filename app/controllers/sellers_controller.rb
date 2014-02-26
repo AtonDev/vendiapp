@@ -16,6 +16,11 @@ class SellersController < ApplicationController
 		item_index
 	end
 
+	def proposal_response
+		proposal = proposal_response_params[:proposal]
+		verdict = proposal_response_params[:verdict]
+	end
+
 
 	#eventually this method needs to go to the owner controller
 	def commit_item
@@ -38,11 +43,11 @@ class SellersController < ApplicationController
 	end
 	private
 
-		def commitment_params
-			params.require(:item_id)
-		end
-
 		def proposal_params
 			params.require(:proposal).permit(:item_id, :price)
+		end
+
+		def proposal_response_params
+			params.require(:response).permit(:proposal, :verdict)
 		end
 end

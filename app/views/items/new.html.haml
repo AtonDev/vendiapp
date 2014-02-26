@@ -1,7 +1,7 @@
 .new_items
 	.container-fluid
 		.row
-			.col-md-4.col-md-offset-2
+			.col-md-4.col-md-offset-1
 				%h2 Add a new Item
 				= form_for @item do |f|
 					.form-group
@@ -22,6 +22,18 @@
 							%br/
 							= i.file_field :photo, :class =>""
 					%div= f.submit "Submit Item", :class =>"btn btn-primary ", :style => "margin-bottom: 8px;"
-			.col-md-2.col-md-offset-1
+			.col-md-5.col-md-offset-1
 				%h2 Price Proposals
+				-PriceProposal.all.each do |proposal|
+					%p 	
+						Proposal from #{proposal.seller.email} to sell 
+						=link_to proposal.item.title, item_path(proposal.item)
+						for USD
+						%strong 
+							=proposal.price
+					=form_tag(:proposal_response, :method => :get) do
+						=hidden_field_tag "response[proposal]", proposal
+						=submit_tag :accept, :class => "btn btn-primary", :name => "response[verdict]"
+						=submit_tag :reject, :class => "btn btn-primary pull-right", :name => "response[verdict]"
+					%hr
 
