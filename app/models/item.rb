@@ -2,6 +2,9 @@ class Item < ActiveRecord::Base
 	belongs_to :seller
 	belongs_to :owner
 	has_many :images
+	has_one :sale_info
+
+	after_save :init_sale_info
 
 	accepts_nested_attributes_for :images, allow_destroy: true
 	#def add_user(user_id)
@@ -13,4 +16,12 @@ class Item < ActiveRecord::Base
 	#		end
 	#	end
 	#end
+
+	private
+		def init_sale_info
+			if sale_info == nil
+				self.sale_info = SaleInfo.create
+			end
+			print "called"
+		end
 end

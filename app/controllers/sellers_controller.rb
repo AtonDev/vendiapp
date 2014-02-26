@@ -4,7 +4,7 @@ class SellersController < ApplicationController
 
 	def commit_item
 		item = Item.find item_id
-		item.price_proposed = price
+		item.sale_info.proposed_price = price
 		item.save
 		current_seller.items << item
 		if current_seller.save
