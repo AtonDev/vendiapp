@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
 	belongs_to :owner
 	has_many :images
 	has_one :sale_info
+	has_one :announcement
 
 	after_save :init_sale_info
 
