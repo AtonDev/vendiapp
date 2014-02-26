@@ -41,4 +41,5 @@ class ItemsController < ApplicationController
         :images_attributes => [:photo])
   	end
 
+
 end

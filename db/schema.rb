@@ -11,21 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226162817) do
+ActiveRecord::Schema.define(version: 20140226203317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "announcements", force: true do |t|
-    t.string   "content"
-    t.integer  "item_id"
-    t.integer  "receiver_id"
-    t.string   "receiver_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "announcements", ["receiver_id"], name: "index_announcements_on_receiver_id", using: :btree
 
   create_table "app_subscribers", force: true do |t|
     t.string   "email"
@@ -51,6 +40,14 @@ ActiveRecord::Schema.define(version: 20140226162817) do
     t.string   "description"
     t.integer  "owner_id"
     t.integer  "seller_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "price_proposals", force: true do |t|
+    t.integer  "seller_id"
+    t.integer  "item_id"
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

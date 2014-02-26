@@ -6,6 +6,7 @@ Vendiwebapp::Application.routes.draw do
 	resources :items
 
 	get 'commit/' => 'sellers#commit_item', :as => :commit_item
+	get 'new_proposal' => 'sellers#new_price_proposal', :as => :new_price_proposal
 
 	get "/profile",   to: 'sellers#show', :as => :profile
 	get "welcome/index"

@@ -1,8 +1,8 @@
 .new_items
 	.container-fluid
 		.row
-			.col-md-4.col-md-offset-4
-				%h2.sign-in-out Add a new Item
+			.col-md-4.col-md-offset-2
+				%h2 Add a new Item
 				= form_for @item do |f|
 					.form-group
 						= f.label :title
@@ -22,3 +22,6 @@
 							%br/
 							= i.file_field :photo, :class =>""
 					%div= f.submit "Submit Item", :class =>"btn btn-primary ", :style => "margin-bottom: 8px;"
+			.col-md-2.col-md-offset-1
+				%h2 Price Proposals
+

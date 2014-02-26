@@ -56,13 +56,13 @@
 												%p If you are the higher bidder you have the right to sell the item for week. If you do so, you are responsible to submit to vendi 90% of the price you intially proposed, for the item to be shipped. 
 												%p The more items you sell, the higher you will get. If you have a high score, you will access more to premium items (ie items coming from reliable owners that have high value)
 												%hr
-												=form_tag(:commit_item, :method => :get) do
-													=hidden_field_tag :item_id, item.id
+												=form_tag(:new_price_proposal, :method => :get) do
+													=hidden_field_tag "proposal[item_id]", item.id
 													.form-group
 														.col-sm-1
 															=label_tag :price, "Price:", :class => "control-label"
 														.col-sm-3
-															=number_field_tag :price, :price, :class => "form-control", :placeholder => "USD"
+															=number_field_tag "proposal[price]", nil, :class => "form-control", :placeholder => "USD"
 													.col-sm-8
 														=submit_tag :submit, :class => "btn btn-primary"
 

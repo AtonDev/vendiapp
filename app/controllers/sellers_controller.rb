@@ -2,6 +2,22 @@ class SellersController < ApplicationController
 	def show
 	end
 
+	def new_price_proposal
+		item = Item.find(proposal_params[:item_id])
+		@proposal = PriceProposal.new
+		@proposal.seller = current_seller
+		@proposal.item = item
+		@proposal.price = proposal_params[:price]
+		if @proposal.save
+			flash.now[:info] = "The price proposal has been sent to the owner of '#{item.title}.'"
+		else
+			flash.now[:warning] = "You probably already sumbmitted a proposal for this item."
+		end
+		item_index
+	end
+
+
+	#eventually this method needs to go to the owner controller
 	def commit_item
 		item = Item.find item_id
 		item.sale_info.proposed_price = price
@@ -22,11 +38,11 @@ class SellersController < ApplicationController
 	end
 	private
 
-		def price
-			params.require(:price)
+		def commitment_params
+			params.require(:item_id)
 		end
 
-		def item_id
-			params.require(:item_id)
+		def proposal_params
+			params.require(:proposal).permit(:item_id, :price)
 		end
 end
