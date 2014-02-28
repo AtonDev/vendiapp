@@ -21,7 +21,10 @@ class Item < ActiveRecord::Base
 	private
 		def init_sale_info
 			if sale_info == nil
-				self.sale_info = SaleInfo.create
+				s = SaleInfo.new
+				s.currently_selling = false
+				s.save
+				self.sale_info = s
 			end
 			print "called"
 		end

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-  	@items = Item.all
+  	@items = Item.where :sale_info => {:currently_selling => false}
   end
 
   def new
