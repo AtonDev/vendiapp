@@ -6,6 +6,7 @@ class CreateSaleInfos < ActiveRecord::Migration
       		t.decimal :price_sold
 			t.date :start_sale
 	      	t.boolean :has_sold
+	      	t.boolean :currently_selling
 	      	t.timestamps
 	    end
   	end

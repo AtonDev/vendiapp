@@ -32,7 +32,7 @@
 						%strong 
 							=proposal.price
 					=form_tag(:proposal_response, :method => :get) do
-						=hidden_field_tag "response[proposal]", proposal
+						=hidden_field_tag "response[proposal_id]", proposal.id
 						=submit_tag :accept, :class => "btn btn-primary", :name => "response[verdict]"
 						=submit_tag :reject, :class => "btn btn-primary pull-right", :name => "response[verdict]"
 					%hr

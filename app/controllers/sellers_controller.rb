@@ -17,8 +17,22 @@ class SellersController < ApplicationController
 	end
 
 	def proposal_response
-		proposal = proposal_response_params[:proposal]
+		proposal = PriceProposal.find(proposal_response_params[:proposal_id])
 		verdict = proposal_response_params[:verdict]
+		if verdict == :accept
+			#TODO send seller notification
+			proposal.item.sale_info.update(	:start_sale => Date.today, 
+											:currently_selling => true,
+											:proposed_price => proposal)
+			current_seller.items << proposal.item
+
+			flash.now[:info] = "A notification of your verdict has been sent to the seller."
+			redirect_to :back
+		else
+			#TODO send seller notification
+			flash.now[:info] = "A notification of your verdict has been sent to the seller."
+			redirect_to :back
+		end
 	end
 
 
@@ -48,6 +62,6 @@ class SellersController < ApplicationController
 		end
 
 		def proposal_response_params
-			params.require(:response).permit(:proposal, :verdict)
+			params.require(:response).permit(:proposal_id, :verdict)
 		end
 end

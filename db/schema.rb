@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140226203317) do
     t.decimal  "price_sold"
     t.date     "start_sale"
     t.boolean  "has_sold"
+    t.boolean  "currently_selling"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
