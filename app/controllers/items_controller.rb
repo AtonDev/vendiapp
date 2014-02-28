@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   def index
-  	@items = Item.where :sale_info => {:currently_selling => false}
+  	all_items = Item.all
+    @items = []
+    all_items.each do |item|
+      @items << item unless item.sale_info.currently_selling
+    end
   end
 
   def new
