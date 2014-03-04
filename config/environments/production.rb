@@ -70,7 +70,7 @@ Vendiwebapp::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 25,
-    :user_name            => 'vendistaging@gmail.com',
+    :user_name            => 'vendisteam@gmail.com',
     :password             => 'FiBy$ATWrs8LsTG36aPD2',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
