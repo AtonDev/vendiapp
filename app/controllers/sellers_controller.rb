@@ -39,6 +39,7 @@ class SellersController < ApplicationController
 		else
 			proposal.item.sale_info.update(	:start_sale => nil, 
 											:currently_selling => false)
+			current_seller.items.delete(proposal.item)
 			msg.content = "Your price proposal for '#{proposal.item.title}' has been rejected. This item has been added to the main ledger."
 			msg.save
 			proposal.seller.notifications << msg
