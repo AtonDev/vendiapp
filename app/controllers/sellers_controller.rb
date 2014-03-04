@@ -24,9 +24,8 @@ class SellersController < ApplicationController
 
 	def proposal_response
 		proposal = PriceProposal.find(proposal_response_params[:proposal_id])
-		verdict = proposal_response_params[:verdict]
 		msg = Notification.new
-		if verdict == :accept
+		if proposal_response_params[:verdict] == "accept"
 			proposal.item.sale_info.update(	:start_sale => Date.today, 
 											:currently_selling => true,
 											:proposed_price => proposal)
@@ -34,16 +33,18 @@ class SellersController < ApplicationController
 			msg.content = "Your price proposal for '#{proposal.item.title}' has been accepted. You now have the right to sell this item."
 			msg.save
 			proposal.seller.notifications << msg
-			flash.now[:info] = "A notification of your verdict has been sent to the seller."
+			proposal.destroy
+			flash[:info] = "accept, A notification of your verdict has been sent to the seller."
 			redirect_to :back
 		else
 			proposal.item.sale_info.update(	:start_sale => nil, 
 											:currently_selling => false)
-			current_seller.items.delete(proposal.item)
+			#current_seller.items.delete(proposal.item)
 			msg.content = "Your price proposal for '#{proposal.item.title}' has been rejected. This item has been added to the main ledger."
 			msg.save
 			proposal.seller.notifications << msg
-			flash.now[:info] = "A notification of your verdict has been sent to the seller."
+			proposal.destroy
+			flash[:info] = "A notification of your verdict has been sent to the seller."
 			redirect_to :back
 		end
 	end

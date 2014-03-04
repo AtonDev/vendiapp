@@ -82,7 +82,7 @@
 					=form_tag(:dismiss_message, :method => :get) do
 						=hidden_field_tag "msg[id]", msg.id
 						=submit_tag "X", :class => "btn btn-primary pull-right dismiss-btn"
-					=msg.date_created
+					=msg.created_at
 					%p{:style => "font-size: 0.8em;"} 
 						=msg.content
 
