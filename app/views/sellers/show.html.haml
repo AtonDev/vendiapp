@@ -70,19 +70,29 @@
 													=submit_tag :submit, :class => "btn btn-primary"
 
 							.modal-footer
-								%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+								%button.btn.btn-default{"data-dismiss" => "modal", :type => "button", :action => "sellers#kill"} Close
 								%button.btn.btn-primary{:type => "button"} Save changes
 
 		.col-md-3
 			%h2 Messages
-			%hr
+			-if current_seller.notifications.length == 0
+				%p You have no messages.
+			-current_seller.notifications.each do |msg|
+				.alert.alert-info.alert-dismissable{:style => "padding:14px;"}
+					=form_tag(:dismiss_message, :method => :get) do
+						=hidden_field_tag "msg[id]", msg.id
+						=submit_tag "X", :class => "btn btn-primary pull-right dismiss-btn"
+					=msg.date_created
+					%p{:style => "font-size: 0.8em;"} 
+						=msg.content
+
 %script
 	$(document).ready(function() {
-
 
 	$('.carousel').carousel({
 	interval: 3000
 	});
+
 
 
 	});

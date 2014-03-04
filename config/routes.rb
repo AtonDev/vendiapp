@@ -7,6 +7,7 @@ Vendiwebapp::Application.routes.draw do
 
 	get 'accept_response/' => 'sellers#proposal_response', :as => :proposal_response
 	get 'new_proposal' => 'sellers#new_price_proposal', :as => :new_price_proposal
+	get 'dismiss_message' => 'sellers#dismiss_message', :as => :dismiss_message
 
 	get "/profile",   to: 'sellers#show', :as => :profile
 	get "welcome/index"

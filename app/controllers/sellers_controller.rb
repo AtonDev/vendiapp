@@ -2,6 +2,12 @@ class SellersController < ApplicationController
 	def show
 	end
 
+	def dismiss_message
+		msg = Notification.find message_params[:id]
+		msg.destroy()
+		redirect_to:back
+	end
+
 	def new_price_proposal
 		item = Item.find(proposal_params[:item_id])
 		@proposal = PriceProposal.new
@@ -19,17 +25,23 @@ class SellersController < ApplicationController
 	def proposal_response
 		proposal = PriceProposal.find(proposal_response_params[:proposal_id])
 		verdict = proposal_response_params[:verdict]
+		msg = Notification.new
 		if verdict == :accept
-			#TODO send seller notification
 			proposal.item.sale_info.update(	:start_sale => Date.today, 
 											:currently_selling => true,
 											:proposed_price => proposal)
 			current_seller.items << proposal.item
-
+			msg.content = "Your price proposal for '#{proposal.item.title}' has been accepted. You now have the right to sell this item."
+			msg.save
+			proposal.seller.notifications << msg
 			flash.now[:info] = "A notification of your verdict has been sent to the seller."
 			redirect_to :back
 		else
-			#TODO send seller notification
+			proposal.item.sale_info.update(	:start_sale => nil, 
+											:currently_selling => false)
+			msg.content = "Your price proposal for '#{proposal.item.title}' has been rejected. This item has been added to the main ledger."
+			msg.save
+			proposal.seller.notifications << msg
 			flash.now[:info] = "A notification of your verdict has been sent to the seller."
 			redirect_to :back
 		end
@@ -63,5 +75,9 @@ class SellersController < ApplicationController
 
 		def proposal_response_params
 			params.require(:response).permit(:proposal_id, :verdict)
+		end
+
+		def message_params 
+			params.require(:msg).permit(:id)
 		end
 end

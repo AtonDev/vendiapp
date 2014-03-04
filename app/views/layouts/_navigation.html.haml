@@ -22,10 +22,6 @@
             %li
               = link_to "New Item", new_item_path
       %ul.nav.navbar-nav.navbar-right
-        %li 
-          = link_to do
-            %span.badge 3
-            Messages
         %li
           -if signed_in?
             = link_to "Sign Out", destroy_seller_session_path, method: :delete

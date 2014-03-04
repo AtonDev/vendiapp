@@ -5,5 +5,6 @@ class Seller < ActiveRecord::Base
 		:recoverable, :rememberable, :trackable, :validatable
 	has_many :items
 	has_many :price_proposals
+	has_many :notifications
 
 end
