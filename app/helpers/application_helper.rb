@@ -11,4 +11,19 @@ module ApplicationHelper
 			"Oh snap!"
 		end
 	end
+
+	def set_key(key)
+		case key
+		when :error
+			:warning
+		when :success
+			:success
+		when :warning
+			:warning
+		when :danger
+			:danger
+		else
+			:info
+		end
+	end
 end

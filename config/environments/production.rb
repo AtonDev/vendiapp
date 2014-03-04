@@ -71,7 +71,7 @@ Vendiwebapp::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 25,
     :user_name            => 'vendistaging@gmail.com',
-    :password             => 'FiBy$ATWrs8LsTG36aPDQ',
+    :password             => 'FiBy$ATWrs8LsTG36aPD2',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 
@@ -100,7 +100,5 @@ Vendiwebapp::Application.configure do
   }
 
 
-
-  config.action_mailer.default_url_options = { :host => 'www.vendistaging.herokuapp.com' }
 
 end

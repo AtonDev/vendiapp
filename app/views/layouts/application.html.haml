@@ -10,7 +10,7 @@
 		= render 'layouts/navigation'
 		.container
 			-flash.each do |key, value|
-				-key = :warning if key == :error
+				-key = set_key(key)
 				%div{:class => "alert alert-#{key} alert-dismissable"}
 					%button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
 					%strong 
