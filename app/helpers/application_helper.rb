@@ -4,7 +4,7 @@ module ApplicationHelper
 		when :success
 			"Well done!"
 		when :info
-			"Heads up!"
+			""
 		when :warning
 			"Warning!"
 		when :danger
