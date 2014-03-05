@@ -6,23 +6,25 @@
 			%hr.h-line/
 			.about-app
 				%p 
-					%b Consider the following story:  
-					Pat is busy and has several unwanted items to sell, but doesn’t have the time or inclination to do the selling.  Sam makes a living selling online but searches through yard sales and flea markets struggling to find items to sell.  Enter Vendi. Vendi facilitates the sale of Pat’s stuff through Sam. Sam makes a commission and Pat’s stuff gets sold at a fair price; everyone wins.
-			%hr.h-line/
-			.about-app
-				%p 
-					%b Our Vision:
-					We desire a future where there is little friction in the recycling of goods from one individual to another.  To make this a reality we are simplifying the process of selling one’s unwanted items, while creating income for others.  Lets realize this vision together. 
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, quas inventore sunt tenetur cumque aliquam! Nesciunt, molestias, consectetur, distinctio officiis vitae sapiente quo numquam magnam voluptatibus dolores sint dignissimos porro!
 			%hr.h-line
-			.call
-				%h2 Who do you identify with in the story above?
-
-				.col-sm-4.col-sm-offset-2.text-center
-					-#%p If you are interested in the reselling experience help us determine what matters to you.
-					=button_to "Sam", new_seller_registration_path, {:method => "get", class: "btn btn-primary"}
-				.col-sm-4.text-center
-					-#%p If you want help selling your items, help us determine what matters to you. 
-					=button_to "Pat", new_app_subscriber_path,  {:method => "get", class: "btn btn-primary"}
+		
+			.col-sm-6.call
+				%h2 Do you want to make money selling online?
+				%ul 
+					%li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					%li Doloribus, numquam, laborum doloremque ipsa voluptatem perspiciatis.
+					%li Libero, accusantium, a, officiis aut soluta repellat labore.
+				.text-center
+					=button_to "Learn more", new_seller_registration_path, {:method => "get", class: "btn btn-primary"}
+			.col-sm-6.call
+				%h2 Do you want an easy way to sell your items?
+				%ul
+					%li Doloribus, numquam, laborum doloremque ipsa voluptatem perspiciatis.
+					%li Libero, accusantium, a, officiis aut soluta repellat labore.
+					%li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				.text-center
+					=button_to "Learn more ", new_app_subscriber_path,  {:method => "get", class: "btn btn-primary"}
 
 			
 
