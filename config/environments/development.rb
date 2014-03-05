@@ -27,8 +27,8 @@ config.action_mailer.smtp_settings = {
   :port => 587,
   :domain => "gmail.com",
   :authentication => :login,
-  :user_name => "venditeam",
-  :password => "FiBy$ATWrs8LsTG36aPD2",
+  :user_name => ENV['VENDI_MAIL_ADDRESS'],
+  :password => ENV['VENDI_MAIL_PSW'],
 }
 
   # Print deprecation notices to the Rails logger.
