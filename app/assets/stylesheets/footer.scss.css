@@ -2,4 +2,7 @@ footer.page-footer {
 	margin: 1em;
 	bottom: 0;
 	font-size: 0.7em;
+	position: absolute !important;
+	bottom: 0;
+	width:100%;
 }

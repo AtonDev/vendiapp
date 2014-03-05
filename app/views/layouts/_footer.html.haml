@@ -1,9 +1,7 @@
-%footer.page-footer
-	%hr.h-line/
-	.container-fluid
-		.row
-			%p.col-sm-6{style: "align: left;"}
-				© Vendi Inc. 2014
-		
-			%p.col-sm-6{style: "text-align: right"}
-				=link_to "About us", "#{about_us_path}"
+%footer.page_footer
+	%hr
+	.content
+		%p.pull-left
+			© Vendi Inc. 2014
+		%p.pull-right
+			=link_to "About us", "#{about_us_path}"

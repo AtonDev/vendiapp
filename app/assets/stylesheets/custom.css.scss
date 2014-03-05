@@ -13,8 +13,32 @@ $grayMediumLight: #eaeaea;
   clear: both;
   float: left;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 10px;
   @include box_sizing;
+}
+
+#holder{
+    min-height: 100%;
+    position:relative;
+}
+
+#body{
+    padding-bottom: 6em;    /* height of footer */
+}
+.page_footer{
+    height: 6em; 
+    width:100%;
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+    @include box_sizing;
+} 
+
+.page_footer > .content {
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 0.7em;
+  padding-bottom: 1em;
 }
 
 #error_explanation {
@@ -33,3 +57,10 @@ $grayMediumLight: #eaeaea;
 .alert {
   //background-color: #FFB673;
 }
+
+html,body{
+    height: 100%
+}
+
+
+
