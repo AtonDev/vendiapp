@@ -1,4 +1,8 @@
 module ApplicationHelper
+	def decode_entity(htmlentity)
+		HTMLEntities.new().decode(htmlentity)
+	end
+
 	def alert_caption(key)
 		case key
 		when :success

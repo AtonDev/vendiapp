@@ -81,7 +81,7 @@
 				.alert.alert-info.alert-dismissable{:style => "padding:14px;"}
 					=form_tag(:dismiss_message, :method => :get) do
 						=hidden_field_tag "msg[id]", msg.id
-						=submit_tag '$times;', :class => "btn btn-primary pull-right dismiss-btn"
+						=submit_tag decode_entity("&times;"), :class => "close-btn"
 					=msg.created_at
 					%p{:style => "font-size: 0.8em;"} 
 						=msg.content
