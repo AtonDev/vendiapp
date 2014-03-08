@@ -1,4 +1,5 @@
 Vendiwebapp::Application.routes.draw do
+  get "dashboard/show"
 	root 'welcome#index'
 
 	devise_for :sellers
