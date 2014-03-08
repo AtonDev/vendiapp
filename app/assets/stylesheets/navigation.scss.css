@@ -1,6 +1,7 @@
 /* Navbar sstyle sheet */
 nav {
 color: #015965;
+margin-bottom: 0 !important;
 }
 .navbar-brand {
 	color: #015965;

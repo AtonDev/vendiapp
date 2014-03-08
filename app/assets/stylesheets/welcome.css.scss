@@ -66,4 +66,105 @@ p {
 
 .btn-primary {
 	background-color: #028799;
+	border:0;
 }
+
+
+
+/* TOP COLOR CONTENT
+-------------------------------------------------- */
+.lg-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 30em;
+	background-color: #B1D6E0;
+} 
+
+$vendi-blue-light: desaturate(lighten(#028799, 47), 54);
+
+
+.lg-header {
+	background-color: $vendi-blue-light;
+	min-width: 100%;
+	margin:0;
+	padding-top:7em;
+	padding-bottom:7em;
+	margin-bottom:3em;
+}
+
+.lead {
+	margin-top:2em;
+	margin-bottom:2em;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #5a5a5a;
+	padding-bottom:40px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+	margin-bottom: 20px;
+	text-align: center;
+
+}
+.marketing h2 {
+	font-weight: normal;
+	color: #015965;
+}
+.marketing .col-lg-4 p {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+	margin: 80px; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+	/* Remove the edge padding needed for mobile */
+	.marketing {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+
+
+	.featurette-heading {
+		font-size: 3em;
+	}
+}
+
+@media (min-width: 992px) {
+	.featurette-heading {
+		margin-top: 40px;
+	}
+
+	.featurette-divider {
+		margin: 80px; /* Space out the Bootstrap <hr> more */
+	}
+}
+

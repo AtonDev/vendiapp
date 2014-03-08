@@ -11,7 +11,7 @@ Vendiwebapp::Application.routes.draw do
 
 	get "/profile",   to: 'sellers#show', :as => :profile
 	get "welcome/index"
-
+	get "welcome/seller", :as => :welcome_seller
 
 	match '/about',   to: 'welcome#about_us', :as => :about_us, via: [:get]
 
