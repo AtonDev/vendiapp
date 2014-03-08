@@ -52,6 +52,8 @@ end
 #handles authetication for application
 gem 'devise'
 
+#encodes decodes html entities
+gem 'htmlentities'
 
 
 #For AWS storage
