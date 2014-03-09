@@ -4,29 +4,24 @@
 
   .row
     .col-lg-10.col-lg-offset-1
-      %h1.text-center big Header
+      %h1.text-center Welcome to Vendi!
       %p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quaerat, ea accusantium doloribus perferendis cupiditate tempora placeat cum amet molestias? 
       =button_to "Sign Up", new_seller_registration_path, {:method => "get", class: "btn-lg btn-primary center-block"}
 .container
   .marketing 
     .row
       .col-lg-4
-        %h2 Heading
-        %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
-        %p
-          %a.btn.btn-primary{:href => "#", :role => "button"} View details &raquo;
+        %h2  Make money fast
+        %p We make it easy for you to earn extra cash by doing what you do well, selling stuff online.
       / /.col-lg-4
       .col-lg-4
-        %h2 Heading
-        %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-        %p
-          %a.btn.btn-primary{:href => "#", :role => "button"} View details &raquo;
+        %h2 Sell other people's stuff
+        %p You don't have to search to find things to sell anymore. We connect you to a database of things people want sold for them you simply sell the item in the marketplace of your choice.
       / /.col-lg-4
       .col-lg-4
-        %h2 Heading
-        %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-        %p
-          %a.btn.btn-primary{:href => "#", :role => "button"} View details &raquo;
+        %h2 No hassle with shipping
+        %p The owner of the item ships directly to the buyer. One less thing for you to worry about.
+       
       / /.col-lg-4
     / /.row
     / START THE FEATURETTES
@@ -34,9 +29,9 @@
       .row.featurette
         .col-md-7{:style => "vertical-align:center;"}
           %h2.featurette-heading
-            First featurette heading.
+            Choose an item and make an offer.
             %span.text-muted It'll blow your mind.
-          %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+          %p.lead Choose an item you know you can sell and make a Vendi-bid. Your Vendi-bid is the amount the owner expects to make once the item sells. If your Vendi-bid is accepted, you are free to sell the item however you want.
         .col-md-5
           %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("grey.png"), :style => "width: 300px;"}
       %hr.featurette-divider
@@ -45,16 +40,17 @@
             %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("grey.png"), :style => "width: 300px;"}
           .col-md-7
             %h2.featurette-heading
-              Oh yeah, it's that good.
+              Find a buyer.
               %span.text-muted See for yourself.
-            %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+            %p.lead Sell the item for any amount greater than your Vendi-bid. Once you sell the item, send us the Vendi-bid amount, and we ship the item to the buyer.
         %hr.featurette-divider
           .row.featurette
             .col-md-7
               %h2.featurette-heading
-                And lastly, this one.
+                Get paid.
                 %span.text-muted Checkmate.
-              %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+              %p.lead The marketplace you sell the item on pays you directly. You keep the difference between your Vendi-bid and the final selling price!
+
             .col-md-5
               %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image",src:image_path("grey.png"), :style => "width: 300px;"}
         %hr.featurette-divider

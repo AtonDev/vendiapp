@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*WElcome Page*/
+$vendi-blue-secondary: #028799;
+$vendi-blue-primary: #015965;
+
 #title {
 	font-size: 5em; 
 	text-align: center;
-	color: #015965;
+	color: $vendi-blue-primary;
 	font-family: cursive;
 	margin: 0.7em;
 }
@@ -13,7 +16,7 @@
 .call > h2 {
 	font-size: 1.5em; 
 	text-align: center;
-	color: #015965;
+	color: $vendi-blue-primary;
 	font-family: cursive;
 	margin: 0.7em;
 }
@@ -65,7 +68,7 @@ p {
 }
 
 .btn-primary {
-	background-color: #028799;
+	background-color: $vendi-blue-secondary;
 	border:0;
 }
 
@@ -82,7 +85,7 @@ p {
 	background-color: #B1D6E0;
 } 
 
-$vendi-blue-light: desaturate(lighten(#028799, 47), 54);
+$vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
 
 
 .lg-header {
@@ -118,7 +121,7 @@ $vendi-blue-light: desaturate(lighten(#028799, 47), 54);
 }
 .marketing h2 {
 	font-weight: normal;
-	color: #015965;
+	color: $vendi-blue-primary;
 }
 .marketing .col-lg-4 p {
 	margin-right: 10px;
