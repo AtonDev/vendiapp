@@ -27,29 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 # Use Haml instead of erb
 gem 'haml-rails', '~> 0.5.3'
-
-
-
-
-group :development do
-
-	#annotates models and routes with attribute info
-	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-end
-
-
-group :production do
-	#Sets assets in production
-	gem 'rails_12factor'
-
-end
 
 #handles authetication for application
 gem 'devise'
@@ -67,9 +47,26 @@ gem 'bcrypt-ruby', '~>3.1.2'
 
 #Use bootstrap
 gem 'bootstrap-sass'
-# gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-# gem "therubyracer"
-# gem "less-rails"
+
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
+group :development do
+
+	#annotates models and routes with attribute info
+	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+end
+
+group :production do
+	#Sets assets in production
+	gem 'rails_12factor'
+
+end
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
