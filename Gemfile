@@ -40,6 +40,8 @@ gem 'haml-rails', '~> 0.5.3'
 
 group :development do
 
+	#annotates models and routes with attribute info
+	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 
@@ -52,6 +54,8 @@ end
 #handles authetication for application
 gem 'devise'
 
+#encodes decodes html entities
+gem 'htmlentities'
 
 
 #For AWS storage

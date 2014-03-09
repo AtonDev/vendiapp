@@ -2,28 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*WElcome Page*/
+$vendi-blue-secondary: #028799;
+$vendi-blue-primary: #015965;
+
 #title {
 	font-size: 5em; 
 	text-align: center;
-	color: #015965;
+	color: $vendi-blue-primary;
 	font-family: cursive;
 	margin: 0.7em;
 }
 
 .call > h2 {
-	font-size: 2em; 
+	font-size: 1.5em; 
 	text-align: center;
-	color: #015965;
+	color: $vendi-blue-primary;
 	font-family: cursive;
 	margin: 0.7em;
 }
 
 .call > p {
 	margin-bottom: 2em;
-}
-
-.h-line {
-
 }
 
 p {
@@ -69,5 +68,106 @@ p {
 }
 
 .btn-primary {
-	background-color: #028799;
+	background-color: $vendi-blue-secondary;
+	border:0;
 }
+
+
+
+/* TOP COLOR CONTENT
+-------------------------------------------------- */
+.lg-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	height: 30em;
+	background-color: #B1D6E0;
+} 
+
+$vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
+
+
+.lg-header {
+	background-color: $vendi-blue-light;
+	min-width: 100%;
+	margin:0;
+	padding-top:7em;
+	padding-bottom:7em;
+	margin-bottom:3em;
+}
+
+.lead {
+	margin-top:2em;
+	margin-bottom:2em;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #5a5a5a;
+	padding-bottom:40px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+	margin-bottom: 20px;
+	text-align: center;
+
+}
+.marketing h2 {
+	font-weight: normal;
+	color: $vendi-blue-primary;
+}
+.marketing .col-lg-4 p {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+	margin: 80px; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+	/* Remove the edge padding needed for mobile */
+	.marketing {
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+
+
+	.featurette-heading {
+		font-size: 3em;
+	}
+}
+
+@media (min-width: 992px) {
+	.featurette-heading {
+		margin-top: 40px;
+	}
+
+	.featurette-divider {
+		margin: 80px; /* Space out the Bootstrap <hr> more */
+	}
+}
+

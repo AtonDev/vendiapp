@@ -31,6 +31,11 @@ class DeviseCreateSellers < ActiveRecord::Migration
       # t.datetime :locked_at
 
 
+      ## User info 
+      t.string :full_name
+      t.string :phone_number
+
+
       t.timestamps
     end
 

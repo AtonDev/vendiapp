@@ -1,0 +1,139 @@
+.container-fluid
+	.row
+		.col-lg-10.col-lg-offset-1
+			%h1.page-header Dashboard
+	.row
+		.col-lg-10.col-lg-offset-1
+			%h2.sub-header Messages
+			.table-responsive
+				%table.table.table-striped
+					%thead
+						%tr
+							%th Date 
+							%th Content
+							%th
+					%tbody
+						%tr
+							%td 03-05-2013
+							%td Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti labore accusantium voluptates facere a.
+							%td 
+								=form_tag(:dismiss_message, :method => :get) do
+									=hidden_field_tag "msg[id]", 1
+									=submit_tag decode_entity("&times;"), :class => "close-btn", "aria-hidden" => "true"
+						%tr
+							%td 12-23-2014
+							%td Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, quae, error perspiciatis numquam quod minus.
+							%td 
+			%ul.pagination.pagination-sm.pull-right
+				%li.disabled
+					%a{href: "#"} «
+				%li.active
+					%a{href: "#"} 1
+				%li
+					%a{href: "#"} 2
+				%li.disabled
+					%a{href: "#"} »
+	.row
+		.col-lg-10.col-lg-offset-1
+			%h2.sub-header Your items
+			%ul.nav.nav-tabs
+				%li.active
+					%a{"data-toggle" => "tab", href: "#selling"} Currently Selling
+				%li
+					%a{"data-toggle" => "tab", href: "#pending"} Pending Proposal
+			.tab-content
+				#selling.tab-pane.active 
+					.table-responsive
+						%table.table.table-striped
+							%thead
+								%tr
+									%th Date due
+									%th Title
+									%th Price
+									%th Description
+
+								%tbody
+									%tr
+										%td world
+										%td kart 100
+										%td 200 USD
+										%td ti won the italian champinship 100 in 2014. still good.
+					%ul.pagination.pagination-sm.pull-right
+						%li.disabled
+							%a{href: "#"} «
+						%li.active
+							%a{href: "#"} 1
+						%li
+							%a{href: "#"} 2
+						%li.disabled
+							%a{href: "#"} »
+				#pending.tab-pane 
+					.table-responsive
+						%table.table.table-striped
+							%thead
+								%tr
+									%th Date due
+									%th Title
+									%th Price
+									%th Description
+
+								%tbody
+									%tr
+										%td worldsdfsdf
+										%td kart 100
+										%td 200 USD
+										%td Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, quos, illum, nihil esse amet quod rerum porro rem nisi voluptate doloribus fugit at sed explicabo eius mollitia qui dolores aperiam!
+	.row
+		.col-lg-10.col-lg-offset-1
+			%h2.sub-header Sneak Peek
+			.table-responsive
+				%table.table.table-striped
+					%thead
+						%tr
+							%th Date due
+							%th Title
+							%th Price
+							%th Description
+
+						%tbody
+							%tr
+								%td world
+								%td kart 100
+								%td 200 USD
+								%td ti won the italian champinship 100 in 2014. still good.
+			%ul.pagination.pagination-sm.pull-right
+				%li.disabled
+					%a{href: "#"} «
+				%li.active
+					%a{href: "#"} 1
+				%li
+					%a{href: "#"} 2
+				%li.disabled
+					%a{href: "#"} »	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %p.navbar-brand
+        -if signed_in?
+          =link_to "Vendi", dashboard_path
+        -else
+          =link_to "Vendi", root_path
+    / Collect the nav links, forms, and other content for toggling
+
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        -if signed_in?
+          -if current_seller.email == "venditeam@gmail.com"
+            %li
+              = link_to "Admin", new_item_path
+          %li
+            = link_to "Dashboard", dashboard_path
+          %li
+            = link_to "Items", items_path
+            
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Account
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Profile", profile_path
+              %li
+                = link_to "Sign Out", destroy_seller_session_path, method: :delete
+        -else      
+          %li
+            = link_to "Sign In", new_seller_session_path

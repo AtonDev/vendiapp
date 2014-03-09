@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  condition   :string(255)
+#  created_at  :datetime
+#  description :string(255)
+#  id          :integer          not null, primary key
+#  owner_id    :integer
+#  seller_id   :integer
+#  title       :string(255)
+#  updated_at  :datetime
+#
+
 class Item < ActiveRecord::Base
 	belongs_to :seller
 	belongs_to :owner
