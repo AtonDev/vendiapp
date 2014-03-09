@@ -38,9 +38,15 @@ gem 'devise'
 gem 'htmlentities'
 
 
-#For AWS storage
+#For AWS image storage
 gem 'paperclip'
 gem 'aws-sdk'
+
+
+#pagination
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate'
+
 
 #hash function for psw-digest
 gem 'bcrypt-ruby', '~>3.1.2'
