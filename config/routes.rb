@@ -41,7 +41,6 @@
 #
 
 Vendiwebapp::Application.routes.draw do
-  get "dashboard/show"
 	root 'welcome#index'
 
 	devise_for :sellers
@@ -57,5 +56,5 @@ Vendiwebapp::Application.routes.draw do
 	get "welcome/seller", :as => :welcome_seller
 
 	match '/about',   to: 'welcome#about_us', :as => :about_us, via: [:get]
-
+	match "/dasboard", to: 'dashboard#show', :as => :dashboard, via: [:get]
 end
