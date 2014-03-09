@@ -1,5 +1,6 @@
 class SellersController < ApplicationController
 	def show
+		@seller = current_seller
 	end
 
 	def dismiss_message
