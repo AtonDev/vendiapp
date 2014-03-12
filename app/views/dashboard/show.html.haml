@@ -13,26 +13,19 @@
 							%th Content
 							%th
 					%tbody
-						%tr
-							%td 03-05-2013
-							%td Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti labore accusantium voluptates facere a.
-							%td 
-								=form_tag(:dismiss_message, :method => :get) do
-									=hidden_field_tag "msg[id]", 1
-									=submit_tag decode_entity("&times;"), :class => "close-btn", "aria-hidden" => "true"
-						%tr
-							%td 12-23-2014
-							%td Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, quae, error perspiciatis numquam quod minus.
-							%td 
-			%ul.pagination.pagination-sm.pull-right
-				%li.disabled
-					%a{href: "#"} «
-				%li.active
-					%a{href: "#"} 1
-				%li
-					%a{href: "#"} 2
-				%li.disabled
-					%a{href: "#"} »
+						-@notifications.each do |msg|
+							%tr
+								%td 
+									=msg.created_at
+								%td 
+									=msg.content
+								%td 
+									=form_tag(:dismiss_message, :method => :get) do
+										=hidden_field_tag "msg[id]", msg.id
+										=submit_tag decode_entity("&times;"), :class => "close-btn", "aria-hidden" => "true"
+			=will_paginate @notifications, :param_name => "page[:notifications]", :class => "pagination pagination-sm pull-right"
+						
+			
 	.row
 		.col-lg-10.col-lg-offset-1
 			%h2.sub-header Your items
@@ -53,36 +46,40 @@
 									%th Description
 
 								%tbody
-									%tr
-										%td world
-										%td kart 100
-										%td 200 USD
-										%td ti won the italian champinship 100 in 2014. still good.
-					%ul.pagination.pagination-sm.pull-right
-						%li.disabled
-							%a{href: "#"} «
-						%li.active
-							%a{href: "#"} 1
-						%li
-							%a{href: "#"} 2
-						%li.disabled
-							%a{href: "#"} »
+									-@selling_items.each do |item|
+										%tr
+											%td 
+												=item.sale_info.start_sale
+											%td 
+												=item.title
+											%td 
+												=item.sale_info.proposed_price
+											%td 
+												=item.description
+					=will_paginate @selling_items, :param_name => "page[:selling]", :class => "pagination pagination-sm pull-right"
+					
 				#pending.tab-pane 
 					.table-responsive
 						%table.table.table-striped
 							%thead
 								%tr
-									%th Date due
+									%th Proposal Date
 									%th Title
-									%th Price
+									%th Vendi-bid
 									%th Description
 
 								%tbody
-									%tr
-										%td worldsdfsdf
-										%td kart 100
-										%td 200 USD
-										%td Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, quos, illum, nihil esse amet quod rerum porro rem nisi voluptate doloribus fugit at sed explicabo eius mollitia qui dolores aperiam!
+									-@pending_items.each do |item|
+										%tr
+											%td 
+												=item.price_proposal.created_at
+											%td 
+												=item.title
+											%td 
+												=item.price
+											%td 
+												=item.description
+					=will_paginate @pending_items, :param_name => "page[:pending]", :class => "pagination pagination-sm pull-right"
 	.row
 		.col-lg-10.col-lg-offset-1
 			%h2.sub-header Sneak Peek
@@ -90,26 +87,20 @@
 				%table.table.table-striped
 					%thead
 						%tr
-							%th Date due
+							%th Thumb
 							%th Title
-							%th Price
 							%th Description
 
 						%tbody
-							%tr
-								%td world
-								%td kart 100
-								%td 200 USD
-								%td ti won the italian champinship 100 in 2014. still good.
-			%ul.pagination.pagination-sm.pull-right
-				%li.disabled
-					%a{href: "#"} «
-				%li.active
-					%a{href: "#"} 1
-				%li
-					%a{href: "#"} 2
-				%li.disabled
-					%a{href: "#"} »	
+							-@ledger_items.each do |item|
+								%tr
+									%td 
+										=image_tag image.photo.url(:thumb), :class => "img-rounded"
+									%td 
+										=item.title
+									%td 
+										=item.description
+
 
 
 
