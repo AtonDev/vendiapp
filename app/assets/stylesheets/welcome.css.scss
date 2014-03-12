@@ -65,7 +65,7 @@ $vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
 	background-color: $vendi-blue-light;
 	min-width: 100%;
 	margin:0;
-	padding-top:7em;
+	padding-top:4em;
 	padding-bottom:7em;
 	margin-bottom:3em;
 }
@@ -106,7 +106,9 @@ $vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
 ------------------------- */
 
 .featurette-divider {
-	margin: 80px; /* Space out the Bootstrap <hr> more */
+	margin: 40px; /* Space out the Bootstrap <hr> more */
+	margin-left: 0;
+	margin-right: 0;
 }
 
 /* Thin out the marketing headings */
@@ -140,7 +142,9 @@ $vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
 	}
 
 	.featurette-divider {
-		margin: 80px; /* Space out the Bootstrap <hr> more */
+		margin: 60px; /* Space out the Bootstrap <hr> more */
+		margin-left: 0;
+		margin-right: 0; /* Space out the Bootstrap <hr> more */
 	}
 }
 

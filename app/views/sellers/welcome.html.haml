@@ -1,12 +1,11 @@
--#.lg-background 
-
 .container-fluid.lg-header
 
   .row
     .col-lg-10.col-lg-offset-1
-      %h1.text-center Welcome to Vendi!
+      %h1#title Vendi
       %p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quaerat, ea accusantium doloribus perferendis cupiditate tempora placeat cum amet molestias? 
       =button_to "Sign Up", new_seller_registration_path, {:method => "get", class: "btn-lg btn-primary center-block"}
+
 .container
   .marketing 
     .row
@@ -26,12 +25,12 @@
     / /.row
     / START THE FEATURETTES
     %hr.featurette-divider
-      %h2.featurette-heading{:style => "margin-bottom: 100px; text-align: center;"} How it works:
       .row.featurette
         .col-md-7{:style => "vertical-align:center;"}
           %h2.featurette-heading
-            Step 1
-            %span.text-muted Choose an item and make an offer.
+            %span.text-muted Step 1
+            Choose an item and make an offer.
+            
           %p.lead Choose an item you know you can sell and make a Vendi-bid. Your Vendi-bid is the amount the owner expects to make once the item sells. If your Vendi-bid is accepted, you are free to sell the item however you want.
         .col-md-5
           %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("grey.png"), :style => "width: 300px;"}
@@ -41,15 +40,15 @@
             %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("grey.png"), :style => "width: 300px;"}
           .col-md-7
             %h2.featurette-heading
-              Step 2
-              %span.text-muted Find a buyer.
+              %span.text-muted Step 2
+              Find a buyer.
             %p.lead Sell the item for any amount greater than your Vendi-bid. Once you sell the item, send us the Vendi-bid amount, and the item gets shipped to the buyer.
         %hr.featurette-divider
           .row.featurette
             .col-md-7
               %h2.featurette-heading
-                Step 3
-                %span.text-muted Get paid.
+                %span.text-muted Step 3
+                Get paid.
               %p.lead The marketplace you sell the item on pays you directly. You keep the difference between your Vendi-bid and the final selling price!
 
             .col-md-5

@@ -2,22 +2,22 @@
 
   .row
     .col-lg-10.col-lg-offset-1
-      %h1.text-center Welcome to Vendi!
+      %h1#title Vendi
       %p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quaerat, ea accusantium doloribus perferendis cupiditate tempora placeat cum amet molestias? 
-
+     
 .container
   .marketing 
     .row
-      .col-lg-4
-        %h2 Sell other people's stuff
-        %p You don't have to search to find things to sell anymore. We connect you to a database of things people want sold for them you simply sell the item in the marketplace of your choice.
-      / /.col-lg-4
       .col-lg-4
         %h2  Make money fast
         %p We make it easy for you to earn extra cash by doing what you do well, selling stuff online.
       / /.col-lg-4
       .col-lg-4
-        %h2 No hassle with shipping
+        %h2 No more searching
+        %p We connect you to a database of things people want sold for them. You simply sell the item in the marketplace of your choice.
+      / /.col-lg-4
+      .col-lg-4
+        %h2 No hassle shipping
         %p The owner of the item ships directly to the buyer. One less thing for you to worry about.
        
       / /.col-lg-4
@@ -27,8 +27,9 @@
       .row.featurette
         .col-md-7{:style => "vertical-align:center;"}
           %h2.featurette-heading
+            %span.text-muted Step 1
             Choose an item and make an offer.
-            %span.text-muted It'll blow your mind.
+            
           %p.lead Choose an item you know you can sell and make a Vendi-bid. Your Vendi-bid is the amount the owner expects to make once the item sells. If your Vendi-bid is accepted, you are free to sell the item however you want.
         .col-md-5
           %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("grey.png"), :style => "width: 300px;"}
@@ -38,15 +39,15 @@
             %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("grey.png"), :style => "width: 300px;"}
           .col-md-7
             %h2.featurette-heading
+              %span.text-muted Step 2
               Find a buyer.
-              %span.text-muted See for yourself.
-            %p.lead Sell the item for any amount greater than your Vendi-bid. Once you sell the item, send us the Vendi-bid amount, and we ship the item to the buyer.
+            %p.lead Sell the item for any amount greater than your Vendi-bid. Once you sell the item, send us the Vendi-bid amount, and the item gets shipped to the buyer.
         %hr.featurette-divider
           .row.featurette
             .col-md-7
               %h2.featurette-heading
+                %span.text-muted Step 3
                 Get paid.
-                %span.text-muted Checkmate.
               %p.lead The marketplace you sell the item on pays you directly. You keep the difference between your Vendi-bid and the final selling price!
 
             .col-md-5
@@ -55,3 +56,4 @@
           .row
             .col-lg-12
               %p.lead{:style => "margin-top: 0;"} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nesciunt obcaecati alias corrupti delectus a sapiente in odio non cupiditate!
+

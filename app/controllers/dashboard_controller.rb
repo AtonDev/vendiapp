@@ -6,8 +6,7 @@ class DashboardController < ApplicationController
 		@notifications = ordered_notifs.paginate(page: params[:notifications_page]).per_page(5)
 
 		ordered_proposals = current_seller.price_proposals.order('created_at DESC')
-		ordered_pending_items = ordered_proposals.map{ |p| p.item }
-		@pending_items = ordered_pending_items.paginate(page: params[:pending_page], per_page: 5)
+		@pending_proposals = ordered_proposals.paginate(page: params[:pending_page], per_page: 5)
 
 		ordered_selling_items = current_seller.items.order('created_at ASC')
 		@selling_items = ordered_selling_items.paginate(page: params[:selling_page]).per_page(5)
