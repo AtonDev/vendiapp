@@ -23,7 +23,8 @@
 									=form_tag(:dismiss_message, :method => :get) do
 										=hidden_field_tag "msg[id]", msg.id
 										=submit_tag decode_entity("&times;"), :class => "close-btn", "aria-hidden" => "true"
-			=will_paginate @notifications, :param_name => "page[:notifications]", :class => "pagination pagination-sm pull-right"
+			%ul.pagination.pagination-sm
+				=will_paginate @notifications, :param_name => "notifications_page", container: false 
 						
 			
 	.row
@@ -56,7 +57,8 @@
 												=item.sale_info.proposed_price
 											%td 
 												=item.description
-					=will_paginate @selling_items, :param_name => "page[:selling]", :class => "pagination pagination-sm pull-right"
+					%ul.pagination.pagination-sm
+						=will_paginate @selling_items, :param_name => "selling_page",  container: false 
 					
 				#pending.tab-pane 
 					.table-responsive
@@ -72,14 +74,15 @@
 									-@pending_items.each do |item|
 										%tr
 											%td 
-												=item.price_proposal.created_at
+												test
 											%td 
 												=item.title
 											%td 
-												=item.price
+												test
 											%td 
 												=item.description
-					=will_paginate @pending_items, :param_name => "page[:pending]", :class => "pagination pagination-sm pull-right"
+					%ul.pagination.pagination-sm
+						=will_paginate @pending_items, :param_name => "pending_page", container: false 
 	.row
 		.col-lg-10.col-lg-offset-1
 			%h2.sub-header Sneak Peek
@@ -95,7 +98,7 @@
 							-@ledger_items.each do |item|
 								%tr
 									%td 
-										=image_tag image.photo.url(:thumb), :class => "img-rounded"
+										=image_tag item.images.first.photo.url(:thumb), :class => "img-rounded"
 									%td 
 										=item.title
 									%td 
