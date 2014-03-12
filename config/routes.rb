@@ -53,7 +53,8 @@ Vendiwebapp::Application.routes.draw do
 
 	get "/profile",   to: 'sellers#show', :as => :profile
 	get "welcome/index"
-	get "welcome/seller", :as => :welcome_seller
+	get "sellers/welcome", :as => :welcome_seller
+	get "sellers/how_it_works", :as => :how_it_works
 
 	match "/dasboard", to: 'dashboard#show', :as => :dashboard, via: [:get]
 end

@@ -15,9 +15,9 @@
 class Item < ActiveRecord::Base
 	belongs_to :seller
 	belongs_to :owner
-	has_many :images
-	has_one :sale_info
-	has_many :price_proposals
+	has_many :images, dependent: :destroy
+	has_one :sale_info, dependent: :destroy
+	has_many :price_proposals, dependent: :destroy
 
 	after_save :init_sale_info
 

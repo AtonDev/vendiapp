@@ -29,7 +29,7 @@ class Seller < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 		:recoverable, :rememberable, :trackable, :validatable, :confirmable
 	has_many :items
-	has_many :price_proposals
-	has_many :notifications
+	has_many :price_proposals, dependent: :destroy
+	has_many :notifications, dependent: :destroy
 
 end
