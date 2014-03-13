@@ -18,10 +18,8 @@ class Image < ActiveRecord::Base
 		thumb: '100x100>',
 		square: '200x200#',
 		medium: '300x300>'
-	}
-	:storage => "s3", 
-    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-    :path => "photos/:class/:id.:style.:extension"
+	},
+	:storage => "s3"
 
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
