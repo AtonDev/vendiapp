@@ -19,12 +19,7 @@ class Image < ActiveRecord::Base
 		square: '200x200#',
 		medium: '300x300>'
 	},
-	:storage => "s3", 
-	:bucket => ENV['S3_BUCKET_NAME'],
-        :s3_credentials => {
-        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-       }
+	:storage => "s3", :s3_credentials => S3_CREDENTIALS
 
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
