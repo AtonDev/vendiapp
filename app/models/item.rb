@@ -37,6 +37,7 @@ class Item < ActiveRecord::Base
 			if sale_info == nil
 				s = SaleInfo.new
 				s.currently_selling = false
+				s.has_sold = false
 				s.save
 				self.sale_info = s
 			end

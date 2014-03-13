@@ -13,5 +13,4 @@ class DashboardController < ApplicationController
 
 		@ledger_items = Item.limit(5).order("RANDOM()")
 	end
-
 end

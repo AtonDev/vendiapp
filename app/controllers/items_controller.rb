@@ -40,6 +40,12 @@ class ItemsController < ApplicationController
   def destroy 
   end
 
+  def sold
+    item = Item.find(item_id)
+    item.sale_info.update(:has_sold => true)
+  end
+
+
   private
   	def item_params
   		params.require(:item).permit(:title, :description, :condition, 
