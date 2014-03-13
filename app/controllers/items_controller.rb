@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    items = Item.all(:include => :sale_info, :conditions => "sale_infos.currently_selling IS TRUE")
+    items = Item.all(:include => :sale_info, :conditions => "sale_infos.currently_selling IS FALSE")
     @items = items.paginate(page: params[:page], per_page: 20)
   end
 
