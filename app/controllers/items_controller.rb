@@ -1,10 +1,7 @@
 class ItemsController < ApplicationController
   def index
-  	all_items = Item.all
-    @items = []
-    all_items.each do |item|
-      @items << item unless item.sale_info.currently_selling
-    end
+    items = Item.all(:include => :sale_info, :conditions => "sale_infos.currently_selling IS TRUE")
+    @items = items.paginate(page: params[:page], per_page: 20)
   end
 
   def new

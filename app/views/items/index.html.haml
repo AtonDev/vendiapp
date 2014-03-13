@@ -69,6 +69,9 @@
 								.modal-footer
 									%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
 									%button.btn.btn-primary{:type => "button"} Save changes
+					%ul.pagination.pagination-sm
+						=will_paginate @items,  container: false
+
 
 
 %script
