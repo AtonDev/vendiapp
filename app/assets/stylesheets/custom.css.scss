@@ -50,7 +50,8 @@ $grayMediumLight: #eaeaea;
 }
 
 .field_with_errors {
-  @extend .error;
+  @extend .control-group !optional;
+  @extend .error !optional;
 }
 
 .alert {
