@@ -1,6 +1,6 @@
 
 =provide :title, 'Items'
-.container-fluid
+.container
 	.row
 		.col-md-10.col-md-offset-1
 			.row
@@ -69,8 +69,8 @@
 								.modal-footer
 									%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
 									%button.btn.btn-primary{:type => "button"} Save changes
-					%ul.pagination.pagination-sm
-						=will_paginate @items,  container: false
+			%ul.pagination.pagination-sm
+				=will_paginate @items,  container: false
 
 
 
