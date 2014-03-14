@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     item = Item.find(item_id)
     item.sale_info.update(:has_sold => true)
     # send message to admin
-    
+    item_sold_email(item.id, item.seller.email)
   end
 
 
