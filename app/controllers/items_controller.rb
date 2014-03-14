@@ -39,9 +39,11 @@ class ItemsController < ApplicationController
 
   def sold
     item = Item.find(item_id)
-    item.sale_info.update(:has_sold => true)
-    # send message to admin
+    item.sale_info.update(:has_sold => true,
+                          :currently_selling => false)
+
     Mailer.item_sold_email(item.id, item.seller.email)
+
     redirect_to :back
   end
 

@@ -57,7 +57,7 @@
 												=item.sale_info.proposed_price
 											%td 
 												=item.description
-										
+
 					%ul.pagination.pagination-sm
 						=will_paginate @selling_items, :param_name => "selling_page",  container: false 
 					
@@ -222,6 +222,7 @@
 					%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
 					%button.btn.btn-primary{:type => "button"} Save changes
 	-#------------------end of modal for sneak peek-------------------------------
+
 
 
 :javascript
