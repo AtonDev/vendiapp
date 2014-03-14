@@ -6,7 +6,7 @@
 			.row
 				-@items.each_with_index do |item, carousel_idx|
 					.col-md-3
-						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#myModal", type: "button"}
+						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#modalItem#{carousel_idx}", type: "button"}
 							%h1.item-title
 								= item.title
 							#my-carousel.carousel.slide{"data-ride" => "carousel"}
@@ -31,7 +31,7 @@
 						-#this indentation level for popover
 						
 							
-					#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+					.modal.fade{:id => "modalItem#{carousel_idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 						.modal-dialog.modal-lg
 							.modal-content
 								.modal-header
@@ -74,7 +74,7 @@
 
 
 
-%script
+:javascript
 	$(document).ready(function() {
 
 
