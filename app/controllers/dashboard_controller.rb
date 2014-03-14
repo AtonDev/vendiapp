@@ -10,6 +10,6 @@ class DashboardController < ApplicationController
 		ordered_selling_items = current_seller.items.order('created_at ASC')
 		@selling_items = ordered_selling_items.paginate(page: params[:selling_page]).per_page(5)
 
-		@ledger_items = Item.limit(5).order("RANDOM()")
+		@ledger_items = Item.all(:conditions => ["available >= ?", true], :order => "RANDOM()", :limit => 5)
 	end
 end

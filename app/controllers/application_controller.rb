@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
 		def configure_permitted_parameters
 			devise_parameter_sanitizer.for(:sign_up) {
-				|seller| seller.permit(	:full_name, :phone_number, :email,
+				|seller| seller.permit(	:first_name, :last_name, :phone_number, :email,
 										:password, :password_confirmation)
 			}
 		end

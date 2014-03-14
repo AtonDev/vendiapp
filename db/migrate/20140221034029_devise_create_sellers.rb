@@ -32,7 +32,8 @@ class DeviseCreateSellers < ActiveRecord::Migration
 
 
       ## User info 
-      t.string :full_name
+      t.string :first_name
+      t.string :last_name
       t.string :phone_number
 
 
