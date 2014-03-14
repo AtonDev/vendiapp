@@ -47,15 +47,15 @@ Vendiwebapp::Application.routes.draw do
 	resources :app_subscribers, :only => [:create, :new]
 	resources :items
 
-	get 'accept_response/' => 'sellers#proposal_response', 	:as => :proposal_response
-	get 'new_proposal' => 'sellers#new_price_proposal', 	:as => :new_price_proposal
-	get 'dismiss_message' => 'sellers#dismiss_message', 	:as => :dismiss_message
-	get 'sold' => 'items#sold', 							:as => :item_sold
+	get 'accept_response/' => 'sellers#proposal_response',	:as => :proposal_response
+	get 'new_proposal' => 'sellers#new_price_proposal', 		:as => :new_price_proposal
+	get 'dismiss_message' => 'sellers#dismiss_message', 		:as => :dismiss_message
+	get 'sold' => 'items#sold', 														:as => :item_sold
 
-	get "/profile",   to: 'sellers#show', 					:as => :profile
+	get "/profile",   to: 'sellers#show', 									:as => :profile
 	get "welcome/index"
-	get "sellers/welcome", 									:as => :welcome_seller
-	get "sellers/how_it_works", 							:as => :how_it_works
+	get "sellers/welcome", 																	:as => :welcome_seller
+	get "sellers/how_it_works", 														:as => :how_it_works
 
-	match "/dasboard", to: 'dashboard#show', 				:as => :dashboard, via: [:get]
+	match "/dasboard", to: 'dashboard#show', 								:as => :dashboard, via: [:get]
 end

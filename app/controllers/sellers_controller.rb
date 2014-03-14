@@ -16,9 +16,9 @@ class SellersController < ApplicationController
 		@proposal.item = item
 		@proposal.price = proposal_params[:price]
 		if @proposal.save
-			flash.now[:info] = "The price proposal has been sent to the owner of '#{item.title}.'"
+			flash[:info] = "The price proposal has been sent to the owner of '#{item.title}.'"
 		else
-			flash.now[:warning] = "You probably already sumbmitted a proposal for this item."
+			flash[:warning] = "You probably already sumbmitted a proposal for this item."
 		end
 		redirect_to :back
 	end
