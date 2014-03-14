@@ -61,11 +61,6 @@ class SellersController < ApplicationController
 
 
 
-	def item_index
-		@items = Item.all
-		render :template => "items/index"
-	end
-
 	private
 
 		def proposal_params
