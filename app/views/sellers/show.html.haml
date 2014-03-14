@@ -3,11 +3,15 @@
 		.col-md-4.col-md-offset-4
 			%h2.text-center
 				Hello
-				=@seller.full_name.split()[0]
+				=@seller.first_name
 			%dl.dl-horizontal
-				%dt Name:
+				%dt First Name:
 				%dd 
-					=@seller.full_name
+					=@seller.first_name
+			%dl.dl-horizontal
+				%dt Last Name:
+				%dd 
+					=@seller.last_name
 			%dl.dl-horizontal
 				%dt Phone Number:
 				%dd 
