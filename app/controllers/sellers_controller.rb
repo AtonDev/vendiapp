@@ -6,7 +6,7 @@ class SellersController < ApplicationController
 	def dismiss_message
 		msg = Notification.find message_params[:id]
 		msg.destroy()
-		redirect_to:back
+		redirect_to :back
 	end
 
 	def new_price_proposal
@@ -20,7 +20,7 @@ class SellersController < ApplicationController
 		else
 			flash.now[:warning] = "You probably already sumbmitted a proposal for this item."
 		end
-		item_index
+		redirect_to :back
 	end
 
 
@@ -65,6 +65,7 @@ class SellersController < ApplicationController
 		@items = Item.all
 		render :template => "items/index"
 	end
+
 	private
 
 		def proposal_params
