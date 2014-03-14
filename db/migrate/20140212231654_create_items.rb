@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :title
       t.string :condition
       t.string :description
+      t.boolean :available, :default => true
       t.belongs_to :owner
       t.belongs_to :seller
       t.timestamps
