@@ -47,8 +47,8 @@
 									%th Description
 
 								%tbody
-									-@selling_items.each do |item|
-										%tr{"onclick"=>"$('#currentlyModal').modal();"}
+									-@selling_items.each_with_index do |item, idx|
+										%tr{"onclick"=>"$('#sellingModal#{idx}').modal();"}
 											%td 
 												=item.sale_info.start_sale
 											%td 
@@ -58,7 +58,7 @@
 											%td 
 												=item.description
 										-#------------------------------Modal for currently --------------------
-										#currentlyModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+										.modal.fade{:id => "sellingModal#{idx}","aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 											.modal-dialog.modal-lg
 												.modal-content
 													.modal-header
@@ -103,9 +103,9 @@
 									%th Description
 
 								%tbody
-									-@pending_proposals.each do |proposal|
+									-@pending_proposals.each_with_index do |proposal,idx|
 										-item = proposal.item
-										%tr{"onclick"=>"$('#pendingModal').modal();"}
+										%tr{"onclick"=>"$('#pendingModal#{idx}').modal();"}
 											%td 
 												=proposal.created_at
 											%td 
@@ -115,7 +115,7 @@
 											%td 
 												=item.description
 										-#------------------------------Modal for pending --------------------
-										#pendingModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+										.modal.fade{:id => "pendingModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 											.modal-dialog.modal-lg
 												.modal-content
 													.modal-header
@@ -160,8 +160,8 @@
 							%th Description
 
 						%tbody
-							-@ledger_items.each do |item|
-								%tr{"onclick"=>"$('#myModal').modal();"}
+							-@ledger_items.each_with_index do |item, idx|
+								%tr{"onclick"=>"$('#sneakPeekModal#{idx}').modal('toggle');", "data-target" => "bs.modal"}
 									%td 
 										=image_tag item.images.first.photo.url(:thumb), :class => "img-rounded"
 									%td 
@@ -171,7 +171,7 @@
 								
 
 								-#----------------------------------------Modal for sneak peek------------------------
-								#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+								.modal.fade{:id => "sneakPeekModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 									.modal-dialog.modal-lg
 										.modal-content
 											.modal-header
@@ -211,6 +211,11 @@
 												%button.btn.btn-primary{:type => "button"} Save changes
 								-#------------------end of modal for sneak peek-------------------------------
 
+
+:javascript
+	$('body').on('hidden.bs.modal', '.modal', function () {
+		$(this).removeData('bs.modal');
+	});
 
 
 
