@@ -40,6 +40,8 @@ class ItemsController < ApplicationController
   def sold
     item = Item.find(item_id)
     item.sale_info.update(:has_sold => true)
+    # send message to admin
+    
   end
 
 
