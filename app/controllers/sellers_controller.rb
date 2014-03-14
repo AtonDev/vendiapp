@@ -30,8 +30,10 @@ class SellersController < ApplicationController
 		item = proposal.item
 		if proposal_response_params[:verdict] == "accept"
 			item.sale_info.update(	:start_sale => Date.today, 
-											:currently_selling => true,
-											:proposed_price => proposal)
+															:currently_selling => true,
+															:proposed_price => proposal)
+			item.update(:available => false)
+			
 			current_seller.items << item
 			msg.content = "Your vendi bid for '#{item.title}' has been accepted. You now have the right to sell this item."
 			msg.save
@@ -47,8 +49,8 @@ class SellersController < ApplicationController
 			flash[:info] = "A notification of your verdict has been sent to the seller."
 			redirect_to :back
 		else
-			item.sale_info.update(	:start_sale => nil, 
-											:currently_selling => false)
+			item.sale_info.update(:start_sale => nil, 
+														:currently_selling => false)
 			#current_seller.items.delete(proposal.item)
 			msg.content = "Your price proposal for '#{proposal.item.title}' has been rejected. This item has been added to the main ledger."
 			msg.save
