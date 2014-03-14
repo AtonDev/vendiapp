@@ -145,6 +145,7 @@
 
 
 -@pending_proposals.each_with_index do |proposal,idx|
+	-item = proposal.item
 	-#------------------------------Modal for pending --------------------
 	.modal.fade{:id => "pendingModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 		.modal-dialog.modal-lg
