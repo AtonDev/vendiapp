@@ -79,8 +79,7 @@ class ItemsController < ApplicationController
     Zip::OutputStream.open(zip_path) do |zos|
       item.images.each_with_index do |img, idx|
         img_name = item.title.gsub(/\s+/, "") + idx.to_s 
-        path = img.photo.path
-        path[0] = ''
+        path = img.photo.path.split("/").last
         zos.put_next_entry(path)
         zos.write Paperclip.io_adapters.for(img.photo).read #Paperclip.io_adapters.for(img.photo)
       end
