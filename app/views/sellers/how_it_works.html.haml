@@ -1,27 +1,36 @@
-.container-fluid.lg-header
-
+.container-fluid
+  .container{:style => "max-width:800px"}
+    %h1{:style => "text-align:center; margin-top:100px"} The Opportunity
+    %p{:style => "text-align:center; margin-top:30px"} The truth is a lot of people have personal belongings they want to sell, but don't have the time or inclination to do the selling themselves. As one of our Vendi Sellers, you have the opportunity to make money by selling these things for them. 
+    %h1{:style => "text-align:center; margin-top:50px"} How it works
+    %p{:style => "text-align:center; margin-top:30px"} The process is pretty simple. 
+    %p 
+      <b>1)</b> Select an item from the 
+      =link_to "item ledger", items_path
+      and make a Vendi-bid. Your Vendi-bid is the amount you must pay Vendi, after you sell the item, in order for the item to ship. Your Vendi-bid must be approved by the item's original owner.
+    %p <b>2)</b> If your Vendi-bid is approved, you are then free to list the item on the marketplace of your choice. You should consider the fees of the marketplace you are selling on, and list the item for a price greater than the Vendi-bid plus the marketplace fees. Your profit is the difference between the final selling price after marketplace fees and the Vendi-bid. 
+    %p{:style => "text-align:center"} <b>Your profit</b> = (Final selling price) - (marketplace fees) - (Vendi-bid) 
+    %p <b>3)</b> Once the item sells, click on the item's "sold!" button on your dashboard. A Vendi representative will contact you to get the buyer's information, and to provide you with a paypal link. Use the paypal link to submit a cash amount equal to your Vendi-bid. When Vendi receives your payment, the original owner ships the item to the buyer. And no worries, should the buyer's money get refunded, your Vendi-bid will be too. 
+-#
   .row
     .col-lg-10.col-lg-offset-1
       %h1#title Vendi
-      %p.lead Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, quaerat, ea accusantium doloribus perferendis cupiditate tempora placeat cum amet molestias? 
-     
-.container
+      %p.lead Don't waste time finding things to sell. Sell more, make more with Vendi. 
+-#
+  
+  .container
   .marketing 
     .row
       .col-lg-4
         %h2  Make money fast
         %p We make it easy for you to earn extra cash by doing what you do well, selling stuff online.
-      / /.col-lg-4
       .col-lg-4
         %h2 No more searching
         %p We connect you to a database of things people want sold for them. You simply sell the item in the marketplace of your choice.
-      / /.col-lg-4
       .col-lg-4
         %h2 No hassle shipping
         %p The owner of the item ships directly to the buyer. One less thing for you to worry about.
        
-      / /.col-lg-4
-    / /.row
     / START THE FEATURETTES
     %hr.featurette-divider
       .row.featurette
