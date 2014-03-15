@@ -17,8 +17,9 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
-#  full_name              :string(255)
-#  phone_number           :integer
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  phone_number           :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
 #

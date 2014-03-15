@@ -7,8 +7,8 @@
 #  proposed_price    :decimal(, )
 #  price_sold        :decimal(, )
 #  start_sale        :date
-#  has_sold          :boolean
-#  currently_selling :boolean
+#  has_sold          :boolean          default(FALSE)
+#  currently_selling :boolean          default(FALSE)
 #  created_at        :datetime
 #  updated_at        :datetime
 #

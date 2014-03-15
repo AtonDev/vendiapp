@@ -6,6 +6,7 @@
 #  title       :string(255)
 #  condition   :string(255)
 #  description :string(255)
+#  available   :boolean          default(TRUE)
 #  owner_id    :integer
 #  seller_id   :integer
 #  created_at  :datetime
