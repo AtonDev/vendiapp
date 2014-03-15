@@ -47,30 +47,6 @@ class ItemsController < ApplicationController
     redirect_to :back
   end
 
-  def download_images_1
-    item = Item.find(item_id)
-    zip_name = item.title.gsub(/\s+/, "") + ".zip"
-    temp_file = Tempfile.new(zip_name)
-    begin 
-      Zip::OutputStream.open(temp_file) { |zos| }
-
-      Zip::File.open(temp_file.path, Zip::File::CREATE) do |zipfile|
-        item.images.each_with_index do |img, idx|
-          img_name = zip_name + idx.to_s 
-          zipfile.add(img_name, Paperclip.io_adapters.for(img.photo).path)
-        end
-      end
-
-      zip_data = File.read(temp_file.path)
-      send_data(zip_data, 
-                :type => 'application/zip', 
-                :filename => zip_name)
-    ensure
-      temp_file.close
-      temp_file.unlink
-    end
-  end
-
   def download_images
     item = Item.find(item_id)
     zip_name = item.title.gsub(/\s+/, "") + ".zip"
@@ -78,10 +54,10 @@ class ItemsController < ApplicationController
     zip_path = File.join(temp_dir, "#{item.title}_#{Date.today.to_s}.zip")
     Zip::OutputStream.open(zip_path) do |zos|
       item.images.each_with_index do |img, idx|
-        img_name = item.title.gsub(/\s+/, "") + idx.to_s 
-        path = img.photo.path.split("/").last
-        zos.put_next_entry(path)
-        zos.write Paperclip.io_adapters.for(img.photo).read #Paperclip.io_adapters.for(img.photo)
+        type = img.photo.path.split(".").last
+        img_name = item.title.gsub(/\s+/, "") + idx.to_s + "." + type
+        zos.put_next_entry(img_name)
+        zos.write Paperclip.io_adapters.for(img.photo).read 
       end
     end
     zip_data = File.read(zip_path)
