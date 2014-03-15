@@ -2,14 +2,14 @@
 #
 # Table name: sale_infos
 #
-#  created_at        :datetime
-#  currently_selling :boolean
-#  has_sold          :boolean
 #  id                :integer          not null, primary key
 #  item_id           :integer
-#  price_sold        :decimal(, )
 #  proposed_price    :decimal(, )
+#  price_sold        :decimal(, )
 #  start_sale        :date
+#  has_sold          :boolean          default(FALSE)
+#  currently_selling :boolean          default(FALSE)
+#  created_at        :datetime
 #  updated_at        :datetime
 #
 

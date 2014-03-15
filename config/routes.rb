@@ -51,6 +51,7 @@ Vendiwebapp::Application.routes.draw do
 	get 'new_proposal' => 'sellers#new_price_proposal', 		:as => :new_price_proposal
 	get 'dismiss_message' => 'sellers#dismiss_message', 		:as => :dismiss_message
 	get 'sold' => 'items#sold', 														:as => :item_sold
+	get 'download_images' => 'items#download_images', 			:as => :download_images
 
 	get "/profile",   to: 'sellers#show', 									:as => :profile
 	get "welcome/index"

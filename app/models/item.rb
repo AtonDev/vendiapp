@@ -2,13 +2,14 @@
 #
 # Table name: items
 #
-#  condition   :string(255)
-#  created_at  :datetime
-#  description :string(255)
 #  id          :integer          not null, primary key
+#  title       :string(255)
+#  condition   :string(255)
+#  description :string(255)
+#  available   :boolean          default(TRUE)
 #  owner_id    :integer
 #  seller_id   :integer
-#  title       :string(255)
+#  created_at  :datetime
 #  updated_at  :datetime
 #
 

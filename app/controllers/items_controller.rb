@@ -47,6 +47,26 @@ class ItemsController < ApplicationController
     redirect_to :back
   end
 
+  def download_images
+    item = Item.find(item_id)
+    zip_name = item.title.gsub(/\s+/, "") + ".zip"
+    temp_dir = Dir.tmpdir
+    zip_path = File.join(temp_dir, "#{item.title}_#{Date.today.to_s}.zip")
+    Zip::OutputStream.open(zip_path) do |zos|
+      item.images.each_with_index do |img, idx|
+        type = img.photo.path.split(".").last
+        img_name = item.title.gsub(/\s+/, "") + idx.to_s + "." + type
+        zos.put_next_entry(img_name)
+        zos.write Paperclip.io_adapters.for(img.photo).read 
+      end
+    end
+    zip_data = File.read(zip_path)
+    send_data(zip_data, 
+              :type => 'application/zip', 
+              :filename => zip_name)
+
+  end
+
 
   private
   	def item_params
