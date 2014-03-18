@@ -11,7 +11,7 @@
 					.form-group
 						= f.label :condition
 						%br/
-						= f.text_field :condition, :autofocus => true, :class =>"form-control"
+						= select_tag :condition, options_for_select(condition_select_options), :class =>"form-control", :name => "item[condition]"
 					.form-group
 						= f.label :description
 						%br/
