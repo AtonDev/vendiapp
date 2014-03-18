@@ -4,26 +4,23 @@
 		.col-md-8.col-md-offset-2
 			%h1#title Vendi
 			%hr.h-line/
-			.about-app
-				%p 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, quas inventore sunt tenetur cumque aliquam! Nesciunt, molestias, consectetur, distinctio officiis vitae sapiente quo numquam magnam voluptatibus dolores sint dignissimos porro!
+			.call
+				%p.text-center
+					the ultimate selling experience
 			%hr.h-line
 		
+			.col-sm-6
+				.jumbotron
+					.call
+						%h2 Interested in making  cash selling other people's items?
+						.text-center
+							=button_to "Sell more, make more with Vendi" , welcome_seller_path, {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
+
 			.col-sm-6.call
-				%h2 Interested in making  cash selling other people's items?
-			
-			.col-sm-6.call
-				%h2 Have things to sell, but don't want to do it yourself?
+				.jumbotron
+					.call
+						%h2 Have things to sell, but don't want to do it yourself?
+						.text-center
+							=button_to "Get your stuff sold with Vendi", new_app_subscriber_path,  {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
 				
-
-	.row
-		.col-md-8.col-md-offset-2
-			.col-sm-6.call
-				.text-center
-					=button_to "Sell more, make more with Vendi" , welcome_seller_path, {:method => "get", class: "btn btn-primary"}
-			.col-sm-6.call
-				.text-center
-					=button_to "Get your stuff sold with Vendi", new_app_subscriber_path,  {:method => "get", class: "btn btn-primary", :style => "width: 234px;"}
-			
-
 	
