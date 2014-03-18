@@ -2,8 +2,8 @@ module ItemsHelper
 
   def condition_select_options
     r = []
-    Item.available_conditions.each_with_index do |c, idx|
-      r << [c, idx]
+    Item.available_conditions.each do |c|
+      r << [c, c]
     end
   end
 end

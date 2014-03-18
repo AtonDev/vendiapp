@@ -27,11 +27,6 @@ class Item < ActiveRecord::Base
 	end
 
 
-  def get_condition
-  	@condition
-  	#tem.available_conditions[@condition]
-	end
-
 
 	private
 		def init_sale_info
