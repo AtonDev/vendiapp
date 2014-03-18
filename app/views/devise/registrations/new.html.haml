@@ -1,26 +1,27 @@
 .auth-forms
   .container-fluid
     .row
-      .col-md-4.col-md-offset-4
+      .col-md-6.col-md-offset-3
         %h2 Sign up
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
           = devise_error_messages!
           .form-group
             = f.label "First Name"
             %br/
-            = f.text_field :first_name, :autofocus => true, :class =>"form-control"
+            = f.text_field :first_name,  :placeholder => "First",:autofocus => true, :class =>"form-control"
           .form-group
             = f.label "Last Name"
             %br/
-            = f.text_field :last_name, :class =>"form-control"
+            = f.text_field :last_name, :placeholder => "Last", :class =>"form-control"
+          %p You will have to verify your phone number with a text we will send you.
           .form-group
             = f.label "Phone Number"
             %br/
-            = f.telephone_field :phone_number, :class =>"form-control"
+            = f.telephone_field :phone_number, :placeholder => "999-999-9999", :class =>"form-control"
           .form-group
             = f.label :email
             %br/
-            = f.email_field :email, :class =>"form-control"
+            = f.email_field :email, :placeholder => "example@example.com",  :class =>"form-control"
           .form-group
             = f.label :password
             %br/
