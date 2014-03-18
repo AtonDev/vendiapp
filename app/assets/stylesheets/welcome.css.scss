@@ -17,18 +17,25 @@ $vendi-blue-primary: #015965;
 	font-size: 1.5em; 
 	text-align: center;
 	color: $vendi-blue-primary;
-	font-family: bold;
-	margin: 0.7em;
+	font-family: Helvetica;
+	margin-bottom: 1.5em;
+	margin-top: 0;
 }
 
 .call > p {
-	margin-bottom: 2em;
+	@extend .lead;
+	font-size: 2em;
+	color: $vendi-blue-primary;
 }
 
 p {
 	font-size: 1.2em;
 }
 
+
+.jumbotron {
+	border-radius: 5px;
+}
 
 .call > .col-sm-6 {
 	padding-left: 0px;
