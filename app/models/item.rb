@@ -26,20 +26,10 @@ class Item < ActiveRecord::Base
 		['New', 'Used - Like New', 'Used - Good', 'Used - Acceptable']
 	end
 
-	 def condition_conversion(cond)
-    if cond.is_a? Integer and cond < available_conditions.length
-      available_conditions[cond]
-    elsif cond.is_a? String and available_conditions.include?(cond)
-      available_conditions.index(cond)
-    end
-  end
 
-	def condition=(condition)
-		if cond.is_a? String and available_conditions.include?(cond)
-      write_attribute(:condition,  available_conditions.index(cond))
-    end
-  end
-
+  def condition
+  	self.available_conditions[self[:condition]]
+	end
 
 
 	private

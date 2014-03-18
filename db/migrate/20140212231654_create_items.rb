@@ -2,7 +2,7 @@ class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
       t.string :title
-      t.string :condition
+      t.integer :condition
       t.string :description
       t.boolean :available, :default => true
       t.belongs_to :owner

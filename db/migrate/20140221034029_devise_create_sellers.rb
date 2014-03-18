@@ -43,6 +43,7 @@ class DeviseCreateSellers < ActiveRecord::Migration
     add_index :sellers, :email,                :unique => true
     add_index :sellers, :reset_password_token, :unique => true
     add_index :sellers, :confirmation_token,   :unique => true
+    add_index :sellers, :phone_number,          :unique => true
     # add_index :sellers, :unlock_token,         :unique => true
   end
 end
