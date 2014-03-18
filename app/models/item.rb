@@ -27,8 +27,9 @@ class Item < ActiveRecord::Base
 	end
 
 
-  def condition
-  	self.available_conditions[self[:condition]]
+  def get_condition
+  	@condition
+  	#tem.available_conditions[@condition]
 	end
 
 

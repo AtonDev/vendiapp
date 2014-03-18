@@ -11,7 +11,7 @@
 					.form-group
 						= f.label :condition
 						%br/
-						= select_tag :condition, options_for_select(condition_select_options), :class =>"form-control"
+						= select_tag :condition, options_for_select(condition_select_options), :class =>"form-control", :name => "item[condition]"
 					.form-group
 						= f.label :description
 						%br/
