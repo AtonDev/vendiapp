@@ -1,12 +1,12 @@
 
 =provide :title, 'Items'
-.container
+.container-fluid
 	.row
 		.col-md-10.col-md-offset-1
 			.row
 				-@items.each_with_index do |item, carousel_idx|
 					.col-md-3
-						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#modalItem#{carousel_idx}", type: "button"}
+						%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#modalItem#{carousel_idx}", type: "button", :style => "width:214px; height: 384px;"}
 							%h1.item-title
 								= item.title
 							#my-carousel.carousel.slide{"data-ride" => "carousel"}
@@ -27,8 +27,7 @@
 										-else
 											.item
 												=image_tag image.photo.url(:medium), :class => "img-rounded"
-									
-						-#this indentation level for popover
+
 						
 -@items.each_with_index do |item, carousel_idx|	
 	.modal.fade{:id => "modalItem#{carousel_idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}

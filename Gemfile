@@ -68,6 +68,9 @@ group :development do
 	gem 'debugger'
 	#annotates models and routes with attribute info
 	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+
+  # for command line utilities
+  gem 'thor'
 end
 
 group :production do
