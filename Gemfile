@@ -55,6 +55,9 @@ gem 'bcrypt-ruby', '~>3.1.2'
 gem 'bootstrap-sass'
 
 
+#phone number verification
+gem 'twilio-ruby'
+
 #zip files
 gem 'rubyzip'
 

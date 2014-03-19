@@ -4,6 +4,10 @@
 /*WElcome Page*/
 $vendi-blue-secondary: #028799;
 $vendi-blue-primary: #015965;
+$vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
+$vendi-blue-dark: darken(#028799, 6);
+
+
 
 #title {
 	font-size: 5em; 
@@ -35,6 +39,7 @@ p {
 
 .jumbotron {
 	border-radius: 5px;
+	background-color: $vendi-blue-light;
 }
 
 .call > .col-sm-6 {
@@ -50,6 +55,7 @@ p {
 .btn-primary {
 	background-color: $vendi-blue-secondary;
 	border:0;
+	&:hover { background-color: $vendi-blue-dark; }
 }
 
 
@@ -65,15 +71,15 @@ p {
 	background-color: #B1D6E0;
 } 
 
-$vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
+
 
 
 .lg-header {
 	background-color: $vendi-blue-light;
 	min-width: 100%;
 	margin:0;
-	padding-top:4em;
-	padding-bottom:7em;
+	padding-top:3em;
+	padding-bottom:3em;
 	margin-bottom:3em;
 }
 
@@ -84,6 +90,19 @@ $vendi-blue-light: desaturate(lighten($vendi-blue-primary, 70), 70);
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
+
+.special-btn {
+	background:none;
+  border:none;
+  box-shadow:none;
+	border: 1px solid;
+	padding: 14px 22px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 10px;
+}
+
+
 
 /* Pad the edges of the mobile views a bit */
 .marketing {
