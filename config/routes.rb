@@ -43,7 +43,11 @@
 Vendiwebapp::Application.routes.draw do
 	root 'welcome#index'
 
-	devise_for :sellers
+	devise_for :sellers, :controllers => { registrations: 'sellers/registrations' }
+	devise_scope :seller do
+		get 'phone_verification' => 'sellers/registrations#verify_phone', :as => :verify_phone
+		get 'new_phone_verification' => 'sellers/registrations#new_phone_verification', :as => :new_phone_verification
+	end
 	resources :app_subscribers, :only => [:create, :new]
 	resources :items
 
@@ -52,6 +56,7 @@ Vendiwebapp::Application.routes.draw do
 	get 'dismiss_message' => 'sellers#dismiss_message', 		:as => :dismiss_message
 	get 'sold' => 'items#sold', 														:as => :item_sold
 	get 'download_images' => 'items#download_images', 			:as => :download_images
+
 
 	get "/profile",   to: 'sellers#show', 									:as => :profile
 	get "welcome/index"
