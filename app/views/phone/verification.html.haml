@@ -1,10 +1,7 @@
-Verification test.
-=link_to "back", :back
-=@phone_verification_code
-
 .container-fluid
   .row
     .col-md-4.col-md-offset-4
+      %p I text message as been sent to the following number with a four digit verification code. Please input that code below to continue.
       =form_tag(:verify_phone, :method => :get) do
         .form-group
           =label_tag :code, "Verification Code:", :class => "control-label"

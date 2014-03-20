@@ -1,14 +1,24 @@
 class Sellers::RegistrationsController < Devise::RegistrationsController
 
-
 def new_phone_verification
   build_resource sign_up_params
 
-  if true #resource.valid?(:create)
+  if resource.valid?(:create)
     @phone_verification_code = "%04d" % rand(9999)
 
     ## send text message
-
+    number_to_send_to = sign_up_params[:phone_number]
+    twilio_sid = "AC31969b5308cfc7d3532bafd6c5f770e9"
+    twilio_token = "92e721db272c2f8e4070fd8ffc0ca536"
+    twilio_phone_number = "5103808583"
+ 
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+ 
+    @twilio_client.account.sms.messages.create(
+      :from => "+1#{twilio_phone_number}",
+      :to => number_to_send_to,
+      :body => "Hola Mercedes, #{@phone_verification_code}"
+    )
 
     ## render form to enter verification code
     render template: "phone/verification"
@@ -17,22 +27,20 @@ def new_phone_verification
       render 'new'
   end
 end
-
-#def create
-#  new_phone_verification
-#end
+ 
 
 # send create form to this method 
 def verify_phone
-  @sign_up_params = sign_up_params
-
-
-  if phone_code_params == @phone_code_params
+  debugger
+  if phone_code_param[:code] == @phone_verification_code
     ## update phone verified?
     render 'create'
   else
-    render 'new'
-    @sign_up_params = nil
+    flash[:danger] = "Your verification code did not match try again."
+    redirect_to :back
+    #@sign_up_params = nil
+    #build_resource @sign_up_params
+    #render 'new'
   end
 end
 
@@ -47,6 +55,6 @@ protected
   end
 
   def phone_code_param
-    params.require(:code)
+    params.permit(:code)
   end
 end
