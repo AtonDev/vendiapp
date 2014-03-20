@@ -1,4 +1,6 @@
 class SellersController < ApplicationController
+
+
 	def show
 		@seller = current_seller
 	end
