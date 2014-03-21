@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -55,12 +56,11 @@ gem 'bcrypt-ruby', '~>3.1.2'
 gem 'bootstrap-sass'
 
 
-#phone number verification
-gem 'twilio-ruby'
-
 #zip files
 gem 'rubyzip'
 
+#feedback
+gem 'feedbacker'
 
 #twilio integration
 gem 'twilio-ruby'
