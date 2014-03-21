@@ -18,7 +18,7 @@ class SellersController < ApplicationController
 		@proposal.item = item
 		@proposal.price = proposal_params[:price]
 		if @proposal.save
-			flash[:info] = "The price proposal has been sent to the owner of '#{item.title}.'"
+			flash[:info] = "Your Vendi-bid for '#{item.title}' has been submitted."
 		else
 			flash[:warning] = "You probably already sumbmitted a proposal for this item."
 		end
@@ -37,14 +37,14 @@ class SellersController < ApplicationController
 			item.update(:available => false)
 			
 			current_seller.items << item
-			msg.content = "Your vendi bid for '#{item.title}' has been accepted. You now have the right to sell this item."
+			msg.content = "Your Vendi-bid for '#{item.title}' has been accepted. You now have the right to sell this item."
 			msg.save
 			proposal.seller.notifications << msg
 			proposal.destroy
 
 			#remove price proposlas from other sellers and send msg
 			item.price_proposals do |p|
-				m = Notification.create(:content => "Another seller won the vendi-bid for #{item.title}.")
+				m = Notification.create(:content => "Another seller won the Vendi-bid for '#{item.title}.'")
 				p.seller.notifications << m
 				p.destroy
 			end	
@@ -54,7 +54,7 @@ class SellersController < ApplicationController
 			item.sale_info.update(:start_sale => nil, 
 														:currently_selling => false)
 			#current_seller.items.delete(proposal.item)
-			msg.content = "Your price proposal for '#{proposal.item.title}' has been rejected. This item has been added to the main ledger."
+			msg.content = "Your Vendi-bid for '#{proposal.item.title}' has been rejected."
 			msg.save
 			proposal.seller.notifications << msg
 			proposal.destroy

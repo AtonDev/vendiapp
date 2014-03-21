@@ -1,20 +1,18 @@
 =provide :title, 'Subscribe'
 .container-fluid
 	.row
-		.col-sm-8.col-md-offset-2
-			%h1#title Vendi
-			%hr
+		.col-sm-6.col-md-offset-3
+			= image_tag image_path("vendi.png"), :style => "width: 100%; padding:50px 6em;"
 			.mobile-lp
-				%p
-					The app is not currently ready. We are working hard to make it happen as soon as possible.
-				%hr
-				%h3
-					Notify Me when it's ready!
+				%p.lead{:style => "margin: 20px;"}
+					Looking for the easiest way to get your stuff sold?
+				%p.lead{:style => "margin: 20px;"}
+					Enter your email below to join our beta invite list
 			=form_for @subscriber  do |f|
-				.col-sm-6.col-md-offset-3.form-group{:style => "margin-bottom: 25px;margin-top: 15px;"}
+				.col-sm-8.col-md-offset-2.form-group{:style => "margin-bottom: 25px;margin-top: 15px;"}
 					=f.label :email, :email, :class => "sr-only"
-					=f.email_field :email,  :placeholder => "Your Email", :class => "form-control", :style => "text-align: center;", :required => true
+					=f.email_field :email, :autofocus => true, :placeholder => "Your Email", :class => "form-control", :style => "text-align: center;", :required => true
 				.row
 				.col-sm-6.col-md-offset-3
-					=f.submit  "Get Notified", :class => "btn btn-primary btn-lg center-block", :style => "width:100%; margin-bottom:50px"
+					=f.submit  "Join Now", :class => "btn-primary btn-lg center-block", :style => " margin-bottom:50px"
 			

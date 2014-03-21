@@ -43,7 +43,7 @@ def create
       render 'new'
     end
   else
-    flash[:danger] = "Your verification code did not match try again."
+    flash[:danger] = "Your verification code did not match the one we sent you, try again."
     render template: "phone/verification"
   end
 end
@@ -78,7 +78,7 @@ protected
     twilio_client.account.sms.messages.create(
       :from => "+1#{twilio_phone_number}",
       :to => number_to_send_to,
-      :body => "Hola Mercedes, #{verification_code}"
+      :body => "Vendi verification code: #{verification_code}"
     )
   end
 

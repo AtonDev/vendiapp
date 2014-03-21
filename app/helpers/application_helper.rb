@@ -12,7 +12,7 @@ module ApplicationHelper
 		when :warning
 			"Warning!"
 		when :danger
-			"Oh snap!"
+			"Whoops."
 		end
 	end
 
