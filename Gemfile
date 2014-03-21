@@ -61,6 +61,10 @@ gem 'twilio-ruby'
 #zip files
 gem 'rubyzip'
 
+
+#twilio integration
+gem 'twilio-ruby'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
