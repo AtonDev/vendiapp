@@ -10,10 +10,10 @@ class AppSubscribersController < ApplicationController
 	def create
 		@subscriber = AppSubscriber.new email
 		if @subscriber.save
-			flash.now[:success] = "You have successfuly subscribed."
+			#flash.now[:success] = "You have successfuly subscribed."
 			render 'show'
 		else
-			flash[:danger] = "Something went wrong. Did you input your email incorrectly? Did you already subscribe?"
+			flash.now[:danger] = "Something went wrong. Did you input your email incorrectly, or already subscribe?"
 			render action: 'new'
 		end
 	end
