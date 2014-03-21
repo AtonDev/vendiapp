@@ -2,7 +2,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
 def new_phone_verification
   build_resource sign_up_params
-
+  session[:sign_up] = sign_up_params
   if resource.valid?(:create)
     v_code = create_verification_code
     @code_id = v_code.id
@@ -16,18 +16,35 @@ def new_phone_verification
       render 'new'
   end
 end
- 
 
-# send create form to this method 
-def verify_phone
-  debugger
-  verification_code_obj = VerificationCode.find(phone_code_param[:code_id])
+
+
+
+def create
+  @code_id = phone_code_param[:code_id]
+  verification_code_obj = VerificationCode.find(@code_id)
   if phone_code_param[:code] == verification_code_obj.code
     verification_code_obj.destroy
-    render 'create'
+    debugger
+    build_resource(sign_up_params)
+    if resource.save
+      yield resource if block_given?
+      if resource.active_for_authentication?
+        set_flash_message :notice, :signed_up if is_flashing_format?
+        sign_up(resource_name, resource)
+        redirect_to dashboard_path
+      else
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
+        expire_data_after_sign_in!
+        redirect_to dashboard_path
+      end
+    else
+      clean_up_passwords resource
+      render 'new'
+    end
   else
     flash[:danger] = "Your verification code did not match try again."
-    redirect_to :back
+    render template: "phone/verification"
   end
 end
 
@@ -35,10 +52,10 @@ end
 
 
 protected
+
+
   def sign_up_params
-    result = @sign_up_parameters || devise_parameter_sanitizer.sanitize(:sign_up)
-    @sign_up_params = nil
-    result
+    session[:sign_up] || devise_parameter_sanitizer.sanitize(:sign_up)
   end
 
   def phone_code_param

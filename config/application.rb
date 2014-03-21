@@ -22,5 +22,6 @@ module Vendiwebapp
 
     #For asset pipeline compability
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
   end
 end

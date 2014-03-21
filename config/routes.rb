@@ -45,7 +45,7 @@ Vendiwebapp::Application.routes.draw do
 
 	devise_for :sellers, :controllers => { registrations: 'sellers/registrations' }
 	devise_scope :seller do
-		get 'phone_verification' => 'sellers/registrations#verify_phone', :as => :verify_phone
+		get 'phone_verification' => 'sellers/registrations#create', :as => :verify_phone
 		get 'new_phone_verification' => 'sellers/registrations#new_phone_verification', :as => :new_phone_verification
 	end
 	resources :app_subscribers, :only => [:create, :new]
@@ -63,5 +63,5 @@ Vendiwebapp::Application.routes.draw do
 	get "sellers/welcome", 																	:as => :welcome_seller
 	get "sellers/how_it_works", 														:as => :how_it_works
 
-	match "/dasboard", to: 'dashboard#show', 								:as => :dashboard, via: [:get]
+	match "/dashboard", to: 'dashboard#show', 								:as => :dashboard, via: [:get]
 end
