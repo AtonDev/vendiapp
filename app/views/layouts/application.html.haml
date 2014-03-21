@@ -14,3 +14,22 @@
 				= yield
 				= render 'shared/footer' 
 		= debug(params) if Rails.env.development?	
+:javascript
+	$(document).ready(function () {
+		//set up some minimal options for the feedback_me plugin
+		fm_options = {
+			show_email: ("#{signed_in?}" === "false"), 
+			email_required: ("#{signed_in?}" === "false") ,
+			email_placeholder: "youremail@example.com",
+			message_placeholder: "Go ahead, type your feedback here...",
+			name_placeholder: "Your Name",
+			bootstrap: true,
+
+			
+			feedback_url: "/feedback"
+	};
+
+	//init feedback_me plugin
+	fm.init(fm_options);
+
+	});

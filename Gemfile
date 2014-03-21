@@ -59,8 +59,6 @@ gem 'bootstrap-sass'
 #zip files
 gem 'rubyzip'
 
-#feedback
-gem 'feedbacker'
 
 #twilio integration
 gem 'twilio-ruby'
