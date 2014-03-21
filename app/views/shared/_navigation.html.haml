@@ -9,9 +9,9 @@
         %span.icon-bar
       %p.navbar-brand
         -if signed_in?
-          =link_to "Vendi", dashboard_path
+          =link_to image_tag(image_path("vendi.png"), :style => "height: 1em;"), dashboard_path
         -else
-          =link_to "Vendi", root_path
+          =link_to image_tag(image_path("vendi.png"), :style => "height: 1em;"), root_path
     / Collect the nav links, forms, and other content for toggling
 
     #bs-example-navbar-collapse-1.collapse.navbar-collapse

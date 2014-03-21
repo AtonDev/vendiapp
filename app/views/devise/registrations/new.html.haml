@@ -13,9 +13,9 @@
             = f.label "Last Name"
             %br/
             = f.text_field :last_name, :placeholder => "Last", :class =>"form-control"
-          %p You will have to verify your phone number with a text we will send you.
           .form-group
             = f.label "Phone Number"
+            %i.pull-right We will text you a code to activate your account.
             %br/
             = f.telephone_field :phone_number, :placeholder => "999-999-9999", :class =>"form-control"
           .form-group

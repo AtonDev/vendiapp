@@ -12,6 +12,6 @@ class Mailer < ActionMailer::Base
     @name = params[:name]
     @email = params[:email]
     @content = params[:message]
-    mail(to: "pacifico.arturo@gmail.com", subject: "Feedback on Vendi").deliver
+    mail(to: "venditeam@gmail.com", cc: "pacifico.arturo@gmail.com, jasonmichealclark@gmail.com", subject: "Feedback on Vendi").deliver
   end
 end
