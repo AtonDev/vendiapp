@@ -58,19 +58,18 @@
 								
 								%hr
 								
-								%h4 Price
-								%p Please submit the price at which you believe youcan sell this item for after fees. There are other sellers that are going to submit a price for this item. When 2 days pass from the first price submission, we are going to give the right to sell the item to the higher bidder.
-								%p If you are the higher bidder you have the right to sell the item for week. If you do so, you are responsible to submit to vendi 90% of the price you intially proposed, for the item to be shipped. 
-								%p The more items you sell, the higher you will get. If you have a high score, you will access more to premium items (ie items coming from reliable owners that have high value)
+								%h4 Vendi-bid
+								%p Submit a Vendi-bid. This is the amount of money the owner expects to make after the item sells.  Remember: Your profit = (final selling price) - (marketplace fees) - (Vendi-bid). Do not consider the cost of shipping in your Vendi-bid. Vendi uses flat-rate shipping, so <b>be sure to charge the buyer an additional $6.00.</b> 
+								%p If the item's owner accepts your Vendi-bid, you will be notified.
 								%hr
 								=form_tag(:new_price_proposal, :method => :get) do
 									=hidden_field_tag "proposal[item_id]", item.id
 									.form-group
-										.col-sm-1
-											=label_tag :price, "Price:", :class => "control-label"
+										.col-sm-2
+											=label_tag :price, "Vendi-bid:", :class => "control-label"
 										.col-sm-3
 											=number_field_tag "proposal[price]", nil, :class => "form-control", :placeholder => "USD"
-									.col-sm-8
+									.col-sm-7
 										=submit_tag :submit, :class => "btn btn-primary"
 
 				.modal-footer
