@@ -33,7 +33,7 @@ class SellersController < ApplicationController
 		if proposal_response_params[:verdict] == "accept"
 			item.sale_info.update(	:start_sale => Date.today, 
 															:currently_selling => true,
-															:proposed_price => proposal)
+															:proposed_price => proposal.price)
 			item.update(:available => false)
 			
 			current_seller.items << item

@@ -43,7 +43,7 @@
 								%tr
 									%th Date due
 									%th Title
-									%th Price
+									%th Vendi-bid
 									%th Description
 
 								%tbody
@@ -136,17 +136,19 @@
 									=submit_tag "Download the images in original size.", :class => "btn btn-primary"
 								
 								%hr
-								%h4 Vendi-bid
-                                %p Submit a Vendi-bid. This is the amount of money the owner expects to make after the item sells.  Remember: Your profit = (final selling price) - (marketplace fees) - (Vendi-bid). Do not consider the cost of shipping in your Vendi-bid. Vendi uses flat-rate shipping, so <b>be sure to charge the buyer an additional $6.00.</b>
-                                %p If the item's owner accepts your Vendi-bid, you will be notified.
-                                %hr
+								%h4 
+									Vendi-bid of 
+									= item.sale_info.proposed_price
+									accepted
+								%p You have been approved to sell this item. After the item sells, press the "Sold!" button below, and a Vendi representative will be in contact with you to collect payment so the item can ship. 
+								%hr
 								=form_tag(:item_sold, :method => :get) do 
 									=hidden_field_tag :id, item.id
 									=submit_tag "Sold!", :class => "center-block btn-lg btn-primary"
 
 				.modal-footer
 					%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-					%button.btn.btn-primary{:type => "button"} Save changes
+				-#	%button.btn.btn-primary{:type => "button"} Save changes
 -#------------------end of modal for curently-------------------------------
 
 
@@ -183,7 +185,7 @@
 
 				.modal-footer
 					%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-					%button.btn.btn-primary{:type => "button"} Save changes
+			-#		%button.btn.btn-primary{:type => "button"} Save changes
 	-#------------------end of modal for penging-------------------------------
 								
 -@ledger_items.each_with_index do |item, idx|
@@ -214,9 +216,9 @@
 								
 								%hr
 								%h4 Vendi-bid
-                                %p Submit a Vendi-bid. This is the amount of money the owner expects to make after the item sells.  Remember: Your profit = (final selling price) - (marketplace fees) - (Vendi-bid). Do not consider the cost of shipping in your Vendi-bid. Vendi uses flat-rate shipping, so <b>be sure to charge the buyer an additional $6.00.</b>
-                                %p If the item's owner accepts your Vendi-bid, you will be notified.
-                                %hr
+								%p Submit a Vendi-bid. This is the amount of money the owner expects to make after the item sells.  Remember your profit is the difference between the final selling price (after any fees from the marketplace where you sell the item) and the Vendi-bid. Do not consider the cost of shipping in your Vendi-bid. Vendi uses $6.00 flat-rate shipping, so <b>be sure to charge the buyer an additional $6.00.</b>
+								%p If your Vendi-bid is accepted, you will be expected to sell this item. Once the item sells, a Vendi representative will contact you to collect the Vendi-bid plus $6.00 so the item can ship.
+								%hr
 								=form_tag(:new_price_proposal, :method => :get) do
 									=hidden_field_tag "proposal[item_id]", item.id
 									.form-group
