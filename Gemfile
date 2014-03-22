@@ -44,6 +44,9 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 
+#analytics
+gem 'newrelic_rpm'
+
 #pagination
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate'
