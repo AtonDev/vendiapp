@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     items = Item.where(:available => true)
-    @items = items.paginate(page: params[:page], per_page: 8)
+    @items = items.paginate(page: params[:page], per_page: 20)
   end
 
   def new
