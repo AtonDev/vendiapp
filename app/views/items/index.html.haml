@@ -27,7 +27,8 @@
 										-else
 											.item
 												=image_tag image.photo.url(:medium), :class => "img-rounded"
-
+				%ul.pagination.pagination-sm
+					=will_paginate @items,  container: false
 						
 -@items.each_with_index do |item, carousel_idx|	
 	.modal.fade{:id => "modalItem#{carousel_idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -73,8 +74,7 @@
 
 				.modal-footer
 					%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-			%ul.pagination.pagination-sm
-				=will_paginate @items,  container: false
+
 
 
 
