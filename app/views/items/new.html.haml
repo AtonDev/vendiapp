@@ -1,39 +1,40 @@
-.new_items
-	.container-fluid
-		.row
-			.col-md-4.col-md-offset-1
-				%h2 Add a new Item
-				= form_for @item do |f|
-					.form-group
-						= f.label :title
-						%br/
-						= f.text_field :title, :autofocus => true, :class =>"form-control"
-					.form-group
-						= f.label :condition
-						%br/
-						= select_tag :condition, options_for_select(condition_select_options), :class =>"form-control", :name => "item[condition]"
-					.form-group
-						= f.label :description
-						%br/
-						= f.text_area :description, :class =>"form-control", size: "60x4"
-					= f.fields_for :images, @images do |i|
+-if current_seller.email == "venditeam@gmail.com"	
+	.new_items
+		.container-fluid
+			.row
+				.col-md-4.col-md-offset-1
+					%h2 Add a new Item
+					= form_for @item do |f|
 						.form-group
-							= i.label "Image"
+							= f.label :title
 							%br/
-							= i.file_field :photo, :class =>""
-					%div= f.submit "Submit Item", :class =>"btn btn-primary ", :style => "margin-bottom: 8px;"
-			.col-md-5.col-md-offset-1
-				%h2 Price Proposals
-				-PriceProposal.all.each do |proposal|
-					%p 	
-						Proposal from #{proposal.seller.email} to sell 
-						=link_to proposal.item.title, item_path(proposal.item)
-						for USD
-						%strong 
-							=proposal.price
-					=form_tag(:proposal_response, :method => :get) do
-						=hidden_field_tag "response[proposal_id]", proposal.id
-						=submit_tag :accept, :class => "btn btn-primary", :name => "response[verdict]"
-						=submit_tag :reject, :class => "btn btn-primary pull-right", :name => "response[verdict]"
-					%hr
+							= f.text_field :title, :autofocus => true, :class =>"form-control"
+						.form-group
+							= f.label :condition
+							%br/
+							= select_tag :condition, options_for_select(condition_select_options), :class =>"form-control", :name => "item[condition]"
+						.form-group
+							= f.label :description
+							%br/
+							= f.text_area :description, :class =>"form-control", size: "60x4"
+						= f.fields_for :images, @images do |i|
+							.form-group
+								= i.label "Image"
+								%br/
+								= i.file_field :photo, :class =>""
+						%div= f.submit "Submit Item", :class =>"btn btn-primary ", :style => "margin-bottom: 8px;"
+				.col-md-5.col-md-offset-1
+					%h2 Price Proposals
+					-PriceProposal.all.each do |proposal|
+						%p 	
+							Proposal from #{proposal.seller.email} to sell 
+							=link_to proposal.item.title, item_path(proposal.item)
+							for USD
+							%strong 
+								=proposal.price
+						=form_tag(:proposal_response, :method => :get) do
+							=hidden_field_tag "response[proposal_id]", proposal.id
+							=submit_tag :accept, :class => "btn btn-primary", :name => "response[verdict]"
+							=submit_tag :reject, :class => "btn btn-primary pull-right", :name => "response[verdict]"
+						%hr
 
