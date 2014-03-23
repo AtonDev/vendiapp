@@ -1,4 +1,4 @@
-.container-fluid.lg-header
+.container-fluid.lg-header{:style => "margin-bottom: 0px"}
 
   .row
     .col-md-6.col-md-offset-3
@@ -7,17 +7,20 @@
 
 
 .container
-  .marketing 
+  .marketing
     .row
       .col-md-4
+        %img.featurette-image.img-responsive.center-block{:alt => "Vendi-bid image", src:image_path("dollar-sign.jpg"), :style => "width: 130px;"}
         %h2  Make money fast
         %p We make it easy for you to earn extra cash by doing what you do well, selling stuff online.
       / /.col-md-4
       .col-md-4
+        %img.featurette-image.img-responsive.center-block{:alt => "Vendi-bid image", src:image_path("item-ledge2.png"), :style => "width: 250px; padding-top: 25px"}
         %h2 No more searching
-        %p We connect you to a database of things people want sold for them. You simply sell the item in the marketplace of your choice.
+        %p We connect you to a database of things people want sold for them. You simply sell these items in the marketplace of your choice.
       / /.col-md-4
       .col-md-4
+        %img.featurette-image.img-responsive.center-block{:alt => "Vendi-bid image", src:image_path("box.jpg"), :style => "width: 155px;"}
         %h2 No hassle shipping
         %p The owner of the item ships directly to the buyer. One less thing for you to worry about.
        
@@ -33,16 +36,16 @@
             
           %p.lead Choose an item you know you can sell and make a Vendi-bid. Your Vendi-bid is the amount the owner expects to make once the item sells. If your Vendi-bid is accepted, you are free to sell the item however you want.
         .col-md-5
-          %img.featurette-image.img-responsive.center-block{:alt => "Vendi-bid image", src:image_path("vendi-bid-img2.png"), :style => "width: 300px;"}
+          %img.featurette-image.img-responsive.center-block{:alt => "Vendi-bid image", src:image_path("vendi-bid-img2.png"), :style => "width: 350px;"}
       %hr.featurette-divider
         .row.featurette
           .col-md-5
-            %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image", src:image_path("marketplace-img.gif"), :style => "width: 300px;"}
+            %img.featurette-image.img-responsive.center-block{:alt => "Marketplace image", src:image_path("marketplace-img.gif"), :style => "width: 300px;"}
           .col-md-7
             %h2.featurette-heading
               %span.text-muted Step 2
               Find a buyer.
-            %p.lead Sell the item for any amount greater than your Vendi-bid. Once you sell the item, send us the Vendi-bid amount, and the item gets shipped to the buyer.
+            %p.lead Sell the item, on the marketplace of your choice, for any amount greater than your Vendi-bid. Once you sell the item, send us the Vendi-bid amount, and the item gets shipped to the buyer.
         %hr.featurette-divider
           .row.featurette
             .col-md-7
@@ -52,7 +55,7 @@
               %p.lead The marketplace you sell the item on pays you directly. You keep the difference between your Vendi-bid and the final selling price!
 
             .col-md-5
-              %img.featurette-image.img-responsive.center-block{:alt => "Generic placeholder image",src:image_path("dollar-sign.jpg"), :style => "width: 300px;"}
+              %img.featurette-image.img-responsive.center-block{:alt => "money image",src:image_path("money3.jpg"), :style => "width: 300px;"}
         %hr.featurette-divider
           .row
             .col-lg-12
