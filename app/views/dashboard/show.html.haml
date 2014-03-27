@@ -223,16 +223,15 @@
 									=form_tag(:new_price_proposal, :method => :get) do
 										=hidden_field_tag "proposal[item_id]", item.id
 										.form-group
-											.col-sm-1
-												=label_tag :price, "Price:", :class => "control-label"
+											.col-sm-2
+												=label_tag :price, "Vendi-bid:", :class => "control-label"
 											.col-sm-3
 												=number_field_tag "proposal[price]", nil, :class => "form-control", :placeholder => "USD"
-										.col-sm-8
+										.col-sm-7
 											=submit_tag :submit, :class => "btn btn-primary"
 
 					.modal-footer
 						%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-						%button.btn.btn-primary{:type => "button"} Save changes
 		-#------------------end of modal for sneak peek-------------------------------
 
 
