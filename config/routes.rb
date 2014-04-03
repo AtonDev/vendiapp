@@ -44,7 +44,8 @@ Vendiwebapp::Application.routes.draw do
 
 	## Mobile API
 	namespace :api do
-		resources :phonegap_items
+		post 'add_image' => 'phonegap_items#add_image', :as => :add_image
+		post 'add_info' => 'phonegap_items#add_info', :as => :add_info
 	end
 
 
