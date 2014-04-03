@@ -2,10 +2,10 @@ class ItemsController < ApplicationController
   def index
     if signed_in?
       items = Item.where(:available => true)
-      @items = items.paginate(page: params[:page], per_page: 12)
     else
-      @items = Item.all(:conditions => ["available >= ?", true], :order => "RANDOM()", :limit => 8)
+      items = Item.all(:conditions => ["available >= ?", true], :order => "RANDOM()", :limit => 8)
     end
+      @items = items.paginate(page: params[:page], per_page: 12)
   end
 
   def new
