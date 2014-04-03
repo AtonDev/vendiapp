@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
       items = Item.where(:available => true)
       @items = items.paginate(page: params[:page], per_page: 12)
     else
-      redirect_to :new_seller_session
+      @items = Item.all(:conditions => ["available >= ?", true], :order => "RANDOM()", :limit => 8)
     end
   end
 
