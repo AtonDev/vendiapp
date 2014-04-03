@@ -27,7 +27,7 @@ class Api::PhonegapItemsController < ApplicationController
     #  return
     #end
     #item.images << img
-    render :json => params.keys
+    render :json => params
   end
 
   def add_info
