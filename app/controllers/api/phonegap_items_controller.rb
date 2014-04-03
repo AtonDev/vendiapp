@@ -1,6 +1,6 @@
 class Api::PhonegapItemsController < ApplicationController
 
-  respond_to :json
+  #respond_to :json
 
 
 
