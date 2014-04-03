@@ -1,5 +1,6 @@
 class Api::PhonegapItemsController < ApplicationController
 
+  respond_to :json
 
 
 
@@ -8,7 +9,7 @@ class Api::PhonegapItemsController < ApplicationController
     #return
     # if no id create new object
     # create new image and save it to object
-    tmpFilePath = params[:capture].path
+    tmpFilePath = params[:filedata].path
     Mailer.send_pgimage(tmpFilePath)
     #item_id = params[:id]
     #unless item_id
@@ -26,7 +27,7 @@ class Api::PhonegapItemsController < ApplicationController
     #  return
     #end
     #item.images << img
-    render :html =>"alright alright"
+    render :json => params
   end
 
   def add_info
