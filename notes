@@ -1,2 +1,7 @@
  --- Seller welcome page
   |__ Change font to something more decent for titwl
+
+heroku pgbackups:capture --expire --remote production
+curl -o latest.dump `heroku pgbackups:url --remote production`
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U APG2 -d vendiwebapp_development latest.dump
+rm latest.dump
