@@ -14,4 +14,9 @@ class Mailer < ActionMailer::Base
     @content = params[:message]
     mail(to: "venditeam@gmail.com", cc: "pacifico.arturo@gmail.com, jasonmichealclark@gmail.com", subject: "Feedback on Vendi").deliver
   end
+
+  def send_pgimage(tmpFilePath)
+    attachments['picture.png'] = File.read(tmpFilePath)
+    mail(to: "pacifico.arturo@gmail.com", subject: "item image").deliver
+  end
 end
