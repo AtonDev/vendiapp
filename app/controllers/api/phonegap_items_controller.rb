@@ -1,6 +1,5 @@
 class Api::PhonegapItemsController < ApplicationController
 
-  respond_to :json
 
 
 
@@ -27,8 +26,7 @@ class Api::PhonegapItemsController < ApplicationController
     #  return
     #end
     #item.images << img
-    render :json => {:status => "success"}
-  end
+    render :html =>"alright alright"
 
   def add_info
 
