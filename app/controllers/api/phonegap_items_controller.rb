@@ -9,7 +9,7 @@ class Api::PhonegapItemsController < ApplicationController
     #return
     # if no id create new object
     # create new image and save it to object
-    tmpFilePath = params[:filedata].path
+    tmpFilePath = params[:capture].tempfile.path
     Mailer.send_pgimage(tmpFilePath)
     #item_id = params[:id]
     #unless item_id
