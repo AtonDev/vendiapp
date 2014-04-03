@@ -14,6 +14,7 @@
 
 class Image < ActiveRecord::Base
 	belongs_to :item
+  belongs_to :phonegap_item
 	has_attached_file :photo, styles: {
 		thumb: '100x100>',
 		square: '200x200#',
