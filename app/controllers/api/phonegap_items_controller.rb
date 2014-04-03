@@ -27,6 +27,7 @@ class Api::PhonegapItemsController < ApplicationController
     #end
     #item.images << img
     render :html =>"alright alright"
+  end
 
   def add_info
 
