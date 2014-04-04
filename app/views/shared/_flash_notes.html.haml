@@ -1,8 +1,8 @@
 .container
-	-flash.each do |key, value|
-		-key = set_key(key)
-		%div{:class => "alert alert-#{key} alert-dismissable"}
-			%button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
-			%strong 
-				=alert_caption(key)
-			= value
+  -flash.each do |key, value|
+    -key = set_key(key)
+    %div{:class => "alert alert-#{key} alert-dismissable"}
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %strong 
+        =alert_caption(key)
+      = value

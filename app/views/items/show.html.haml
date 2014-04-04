@@ -1,20 +1,20 @@
 .create-items
-	.container-fluid
-		.row
-			.col-md-8.col-md-offset-2
-				%h2 You have added the following item.
-				%h3 Title
-				%p 
-					=@item.title
-				%h3 Description
-				%p 
-					=@item.description
-				%h3 Condition
-				%p 
-					=@item.condition
-				%h3 Images
-		.row
-			.col-md-offset-2
-				-@item.images.each_with_index do |img, idx|
-					.col-md-3
-						=image_tag img.photo.url(:medium)
+  .container-fluid
+    .row
+      .col-md-8.col-md-offset-2
+        %h2 You have added the following item.
+        %h3 Title
+        %p 
+          =@item.title
+        %h3 Description
+        %p 
+          =@item.description
+        %h3 Condition
+        %p 
+          =@item.condition
+        %h3 Images
+    .row
+      .col-md-offset-2
+        -@item.images.each_with_index do |img, idx|
+          .col-md-3
+            =image_tag img.photo.url(:medium)

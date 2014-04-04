@@ -1,22 +1,22 @@
 =provide(:title, 'Welcome')
 .container-fluid
-	.row
-		.col-md-8.col-md-offset-2
-			= image_tag image_path("vendi2.png"), :style => "width: 100%;  padding: 10px; padding-bottom: 30px; padding-top:30px;"
-		
-		
-			.col-sm-6
-				.jumbotron
-					.call
-						%h2 Want to make money selling other people's items?
-						.text-center
-							=button_to "Sell more, make more with Vendi" , welcome_seller_path, {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
+  .row
+    .col-md-8.col-md-offset-2
+      = image_tag image_path("vendi2.png"), :style => "width: 100%;  padding: 10px; padding-bottom: 30px; padding-top:30px;"
+    
+    
+      .col-sm-6
+        .jumbotron
+          .call
+            %h2 Want to make money selling other people's items?
+            .text-center
+              =button_to "Sell more, make more with Vendi" , welcome_seller_path, {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
 
-			.col-sm-6.call
-				.jumbotron
-					.call
-						%h2 Have things to sell, but don't want to do it yourself?
-						.text-center
-							=button_to "Get your stuff sold with Vendi", new_app_subscriber_path,  {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
-				
-	
+      .col-sm-6.call
+        .jumbotron
+          .call
+            %h2 Have things to sell, but don't want to do it yourself?
+            .text-center
+              =button_to "Get your stuff sold with Vendi", new_app_subscriber_path,  {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
+        
+  

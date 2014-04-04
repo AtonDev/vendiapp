@@ -25,17 +25,17 @@
 #
 
 class Seller < ActiveRecord::Base
-	# Include default devise modules. Others available are:
-	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable,
-		:recoverable, :rememberable, :trackable, :validatable, :confirmable
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-	validates :first_name, :presence => true, :format => { with: /\w+/, message: "should contain only letter characters" }	
-	validates :last_name, :presence => true, :format => { with: /\w+/, message: "should contain only letter characters" }	
-	validates :phone_number, :presence => true, :uniqueness => true, :length => {:minimum => 10, :maximum => 15}, :format => { with: /\d{3}-\d{3}-\d{4}/, message: "should have this format: 123-456-7890" }
+  validates :first_name, :presence => true, :format => { with: /\w+/, message: "should contain only letter characters" }  
+  validates :last_name, :presence => true, :format => { with: /\w+/, message: "should contain only letter characters" }  
+  validates :phone_number, :presence => true, :uniqueness => true, :length => {:minimum => 10, :maximum => 15}, :format => { with: /\d{3}-\d{3}-\d{4}/, message: "should have this format: 123-456-7890" }
 
-	has_many :items
-	has_many :price_proposals, dependent: :destroy
-	has_many :notifications, dependent: :destroy
+  has_many :items
+  has_many :price_proposals, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
 end

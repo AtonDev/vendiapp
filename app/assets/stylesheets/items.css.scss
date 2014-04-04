@@ -2,21 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .item-title {
-	font-size:1em;
-	text-align: center;
+  font-size:1em;
+  text-align: center;
 }
 
 .item-image {
-	width: 140px;
-	height: 140px;
-	margin: 1em;
+  width: 140px;
+  height: 140px;
+  margin: 1em;
 }
 
 .item-btn {
-	background: transparent !important;
-	width:100%;
-	white-space: normal;
-	padding:0;
+  background: transparent !important;
+  width:100%;
+  white-space: normal;
+  padding:0;
 }
 
 
@@ -25,11 +25,11 @@
 }
 
 .carousel-indicators {
-	bottom: -40px;
+  bottom: -40px;
 }
 
 .carousel-inner {
-	margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .carousel-indicators li {
@@ -42,17 +42,17 @@
 }
 
 .item-details > h3 {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 .item-details > p {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 .dismiss-btn {
-	padding-right: 6px;
-	padding-left: 6px;
-	padding-top: 0;
-	padding-bottom: 0;
+  padding-right: 6px;
+  padding-left: 6px;
+  padding-top: 0;
+  padding-bottom: 0;
 
 }

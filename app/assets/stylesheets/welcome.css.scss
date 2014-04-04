@@ -10,52 +10,52 @@ $vendi-blue-dark: darken(#028799, 6);
 
 
 #title {
-	font-size: 5em; 
-	text-align: center;
-	color: $vendi-blue-primary;
-	font-family: cursive;
-	margin: 0.7em;
+  font-size: 5em; 
+  text-align: center;
+  color: $vendi-blue-primary;
+  font-family: cursive;
+  margin: 0.7em;
 }
 
 .call > h2 {
-	font-size: 1.5em; 
-	text-align: center;
-	color: $vendi-blue-primary;
-	font-family: Helvetica;
-	margin-bottom: 1.5em;
-	margin-top: 0;
+  font-size: 1.5em; 
+  text-align: center;
+  color: $vendi-blue-primary;
+  font-family: Helvetica;
+  margin-bottom: 1.5em;
+  margin-top: 0;
 }
 
 .call > p {
-	@extend .lead;
-	font-size: 2em;
-	color: $vendi-blue-primary;
+  @extend .lead;
+  font-size: 2em;
+  color: $vendi-blue-primary;
 }
 
 p {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 
 .jumbotron {
-	border-radius: 5px;
-	background-color: $vendi-blue-light;
+  border-radius: 5px;
+  background-color: $vendi-blue-light;
 }
 
 .call > .col-sm-6 {
-	padding-left: 0px;
+  padding-left: 0px;
 }
 
 .left-border {
-	border-style: solid;
-	border: 1;
-	border-left: thin;
+  border-style: solid;
+  border: 1;
+  border-left: thin;
 }
 
 .btn-primary {
-	background-color: $vendi-blue-secondary;
-	border:0;
-	&:hover { background-color: $vendi-blue-dark; }
+  background-color: $vendi-blue-secondary;
+  border:0;
+  &:hover { background-color: $vendi-blue-dark; }
 }
 
 
@@ -63,40 +63,40 @@ p {
 /* TOP COLOR CONTENT
 -------------------------------------------------- */
 .lg-background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	min-width: 100%;
-	height: 30em;
-	background-color: #B1D6E0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 30em;
+  background-color: #B1D6E0;
 } 
 
 
 
 
 .lg-header {
-	background-color: $vendi-blue-light;
-	min-width: 100%;
-	margin:0;
-	padding-top:3em;
-	padding-bottom:3em;
-	margin-bottom:3em;
+  background-color: $vendi-blue-light;
+  min-width: 100%;
+  margin:0;
+  padding-top:3em;
+  padding-bottom:3em;
+  margin-bottom:3em;
 }
 
 .lead {
-	margin-top:2em;
-	margin-bottom:2em;
+  margin-top:2em;
+  margin-bottom:2em;
 }
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
 .special-btn {
-	background:none;
+  background:none;
   border:none;
   box-shadow:none;
-	border: 1px solid;
-	padding: 14px 22px;
+  border: 1px solid;
+  padding: 14px 22px;
   font-size: 24px;
   line-height: 1.33;
   border-radius: 10px;
@@ -106,25 +106,25 @@ p {
 
 /* Pad the edges of the mobile views a bit */
 .marketing {
-	padding-right: 15px;
-	padding-left: 15px;
-	color: #5a5a5a;
-	padding-bottom:40px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: #5a5a5a;
+  padding-bottom:40px;
 }
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
-	margin-bottom: 20px;
-	text-align: center;
+  margin-bottom: 20px;
+  text-align: center;
 
 }
 .marketing h2 {
-	font-weight: normal;
-	color: $vendi-blue-primary;
+  font-weight: normal;
+  color: $vendi-blue-primary;
 }
 .marketing .col-lg-4 p {
-	margin-right: 10px;
-	margin-left: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 
@@ -132,16 +132,16 @@ p {
 ------------------------- */
 
 .featurette-divider {
-	margin: 40px; /* Space out the Bootstrap <hr> more */
-	margin-left: 0;
-	margin-right: 0;
+  margin: 40px; /* Space out the Bootstrap <hr> more */
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Thin out the marketing headings */
 .featurette-heading {
-	font-weight: 300;
-	line-height: 1;
-	letter-spacing: -1px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
 /* RESPONSIVE CSS
@@ -149,28 +149,28 @@ p {
 
 @media (min-width: 768px) {
 
-	/* Remove the edge padding needed for mobile */
-	.marketing {
-		padding-right: 0;
-		padding-left: 0;
-	}
+  /* Remove the edge padding needed for mobile */
+  .marketing {
+    padding-right: 0;
+    padding-left: 0;
+  }
 
 
 
-	.featurette-heading {
-		font-size: 3em;
-	}
+  .featurette-heading {
+    font-size: 3em;
+  }
 }
 
 @media (min-width: 992px) {
-	.featurette-heading {
-		margin-top: 40px;
-	}
+  .featurette-heading {
+    margin-top: 40px;
+  }
 
-	.featurette-divider {
-		margin: 60px; /* Space out the Bootstrap <hr> more */
-		margin-left: 0;
-		margin-right: 0; /* Space out the Bootstrap <hr> more */
-	}
+  .featurette-divider {
+    margin: 60px; /* Space out the Bootstrap <hr> more */
+    margin-left: 0;
+    margin-right: 0; /* Space out the Bootstrap <hr> more */
+  }
 }
 
