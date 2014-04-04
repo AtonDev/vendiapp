@@ -6,7 +6,7 @@
 
 
 $('.item-btn').popover({ 
-	html : true, 
-	content: () -> $('#popover_content_wrapper').html()
+  html : true, 
+  content: () -> $('#popover_content_wrapper').html()
 })
 

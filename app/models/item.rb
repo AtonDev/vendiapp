@@ -14,22 +14,22 @@
 #
 
 class Item < ActiveRecord::Base
-	belongs_to :seller
-	belongs_to :owner
-	has_many :images, dependent: :destroy
-	has_one :sale_info, dependent: :destroy
-	has_many :price_proposals, dependent: :destroy
-	after_save :init_sale_info
-	accepts_nested_attributes_for :images, allow_destroy: true
+  belongs_to :seller
+  belongs_to :owner
+  has_many :images, dependent: :destroy
+  has_one :sale_info, dependent: :destroy
+  has_many :price_proposals, dependent: :destroy
+  after_save :init_sale_info
+  accepts_nested_attributes_for :images, allow_destroy: true
 
-	def self.available_conditions 
-		['New', 'Used - Like New', 'Used - Good', 'Used - Acceptable']
-	end
+  def self.available_conditions 
+    ['New', 'Used - Like New', 'Used - Good', 'Used - Acceptable']
+  end
 
 
 
-	private
-		def init_sale_info
-				self.create_sale_info if sale_info == nil
-		end
+  private
+    def init_sale_info
+        self.create_sale_info if sale_info == nil
+    end
 end

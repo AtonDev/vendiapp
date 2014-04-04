@@ -1,23 +1,23 @@
 .container
-	.row
-		.col-md-4.col-md-offset-4
-			%h2.text-center
-				Hello
-				=@seller.first_name
-			%dl.dl-horizontal
-				%dt First Name:
-				%dd 
-					=@seller.first_name
-			%dl.dl-horizontal
-				%dt Last Name:
-				%dd 
-					=@seller.last_name
-			%dl.dl-horizontal
-				%dt Phone Number:
-				%dd 
-					=@seller.phone_number 
-			%dl.dl-horizontal
-				%dt Email:
-				%dd 
-					=@seller.email
-			=link_to "edit", edit_seller_registration_path, :class => "pull-right"
+  .row
+    .col-md-4.col-md-offset-4
+      %h2.text-center
+        Hello
+        =@seller.first_name
+      %dl.dl-horizontal
+        %dt First Name:
+        %dd 
+          =@seller.first_name
+      %dl.dl-horizontal
+        %dt Last Name:
+        %dd 
+          =@seller.last_name
+      %dl.dl-horizontal
+        %dt Phone Number:
+        %dd 
+          =@seller.phone_number 
+      %dl.dl-horizontal
+        %dt Email:
+        %dd 
+          =@seller.email
+      =link_to "edit", edit_seller_registration_path, :class => "pull-right"
