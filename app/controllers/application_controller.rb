@@ -8,20 +8,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   #include SessionsHelper
 
-	before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
-	protected
+  protected
 
-		def configure_permitted_parameters
-			devise_parameter_sanitizer.for(:sign_up) {
-				|seller| seller.permit(	:first_name, :last_name, :phone_number, :email,
-										:password, :password_confirmation)
-			}
-		end
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.for(:sign_up) {
+        |seller| seller.permit(  :first_name, :last_name, :phone_number, :email,
+                    :password, :password_confirmation)
+      }
+    end
 
-	def after_sign_in_path_for(resource)
-		dashboard_path
-	end
+  def after_sign_in_path_for(resource)
+    dashboard_path
+  end
 
   def after_sign_up_path_for(resource)
     dashboard_path

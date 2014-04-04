@@ -1,98 +1,98 @@
 .container-fluid
-	.row
-		.col-md-7.col-sm-offset-1
+  .row
+    .col-md-7.col-sm-offset-1
 
-			%h1
-				Hello 
-				= current_seller.email
-			%p
-				The following is the list of items you committed to sell.
+      %h1
+        Hello 
+        = current_seller.email
+      %p
+        The following is the list of items you committed to sell.
 
-			-current_seller.items.each do |item|
-				.col-md-3
-					%button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#myModal", type: "button"}
-						%h1.item-title
-							= item.title
-						#my-carousel.carousel.slide{"data-ride" => "carousel"}
-							/ Indicators
-							%ol.carousel-indicators
-								-item.images.each_with_index do |image, index|
-									-if index == 0
-										%li.active{"data-slide-to" => "0", "data-target" => "#my-carousel"}
-									-else
-										%li{"data-slide-to" => "1", "data-target" => "#my_carousel"}
-								
-							/ Wrapper for slides
-							.carousel-inner
-								-item.images.each_with_index do |image, index|
-									-if index == 0
-										.item.active
-											=image_tag image.photo.url(:medium), :class => "img-rounded"
-									-else
-										.item
-											=image_tag image.photo.url(:medium), :class => "img-rounded"
-								
-					-#this indentation level for popover
-					
-						
-				#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-					.modal-dialog.modal-lg
-						.modal-content
-							.modal-header
-								%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
-								%h4#myModalLabel.modal-title 
-									=item.title
-							.modal-body
-								.row
-									.col-md-10.col-md-offset-1
-										.item-details
-											%h4 Description
-											%p
-												= item.description
-											%hr
-											%h4 Images
-											-item.images.each do |img|
-												.col-md-4
-													=image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
-											
-											%h4 Price
-											%p Please submit the price at which you believe youcan sell this item for after fees. There are other sellers that are going to submit a price for this item. When 2 days pass from the first price submission, we are going to give the right to sell the item to the higher bidder.
-											%p If you are the higher bidder you have the right to sell the item for week. If you do so, you are responsible to submit to vendi 90% of the price you intially proposed, for the item to be shipped. 
-											%p The more items you sell, the higher you will get. If you have a high score, you will access more to premium items (ie items coming from reliable owners that have high value)
-											%hr
-											=form_tag :class => "form-horizontal" do
-												.form-group
-													.col-sm-1
-														=label_tag :price, "Price:", :class => "control-label"
-													.col-sm-3
-														=number_field_tag :price, :price, :class => "form-control", :placeholder => "USD"
-												.col-sm-8
-													=submit_tag :submit, :class => "btn btn-primary"
+      -current_seller.items.each do |item|
+        .col-md-3
+          %button.btn.item-btn.text-center{align: "center", "data-placement" => "bottom", "data-toggle" => "modal", "data-target" => "#myModal", type: "button"}
+            %h1.item-title
+              = item.title
+            #my-carousel.carousel.slide{"data-ride" => "carousel"}
+              / Indicators
+              %ol.carousel-indicators
+                -item.images.each_with_index do |image, index|
+                  -if index == 0
+                    %li.active{"data-slide-to" => "0", "data-target" => "#my-carousel"}
+                  -else
+                    %li{"data-slide-to" => "1", "data-target" => "#my_carousel"}
+                
+              / Wrapper for slides
+              .carousel-inner
+                -item.images.each_with_index do |image, index|
+                  -if index == 0
+                    .item.active
+                      =image_tag image.photo.url(:medium), :class => "img-rounded"
+                  -else
+                    .item
+                      =image_tag image.photo.url(:medium), :class => "img-rounded"
+                
+          -#this indentation level for popover
+          
+            
+        #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog.modal-lg
+            .modal-content
+              .modal-header
+                %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+                %h4#myModalLabel.modal-title 
+                  =item.title
+              .modal-body
+                .row
+                  .col-md-10.col-md-offset-1
+                    .item-details
+                      %h4 Description
+                      %p
+                        = item.description
+                      %hr
+                      %h4 Images
+                      -item.images.each do |img|
+                        .col-md-4
+                          =image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
+                      
+                      %h4 Price
+                      %p Please submit the price at which you believe youcan sell this item for after fees. There are other sellers that are going to submit a price for this item. When 2 days pass from the first price submission, we are going to give the right to sell the item to the higher bidder.
+                      %p If you are the higher bidder you have the right to sell the item for week. If you do so, you are responsible to submit to vendi 90% of the price you intially proposed, for the item to be shipped. 
+                      %p The more items you sell, the higher you will get. If you have a high score, you will access more to premium items (ie items coming from reliable owners that have high value)
+                      %hr
+                      =form_tag :class => "form-horizontal" do
+                        .form-group
+                          .col-sm-1
+                            =label_tag :price, "Price:", :class => "control-label"
+                          .col-sm-3
+                            =number_field_tag :price, :price, :class => "form-control", :placeholder => "USD"
+                        .col-sm-8
+                          =submit_tag :submit, :class => "btn btn-primary"
 
-							.modal-footer
-								%button.btn.btn-default{"data-dismiss" => "modal", :type => "button", :action => "sellers#kill"} Close
-								%button.btn.btn-primary{:type => "button"} Save changes
+              .modal-footer
+                %button.btn.btn-default{"data-dismiss" => "modal", :type => "button", :action => "sellers#kill"} Close
+                %button.btn.btn-primary{:type => "button"} Save changes
 
-		.col-md-3
-			%h2 Messages
-			-if current_seller.notifications.length == 0
-				%p You have no messages.
-			-current_seller.notifications.each do |msg|
-				.alert.alert-info.alert-dismissable{:style => "padding:14px;"}
-					=form_tag(:dismiss_message, :method => :get) do
-						=hidden_field_tag "msg[id]", msg.id
-						=submit_tag decode_entity("&times;"), :class => "close-btn"
-					=msg.created_at
-					%p{:style => "font-size: 0.8em;"} 
-						=msg.content
+    .col-md-3
+      %h2 Messages
+      -if current_seller.notifications.length == 0
+        %p You have no messages.
+      -current_seller.notifications.each do |msg|
+        .alert.alert-info.alert-dismissable{:style => "padding:14px;"}
+          =form_tag(:dismiss_message, :method => :get) do
+            =hidden_field_tag "msg[id]", msg.id
+            =submit_tag decode_entity("&times;"), :class => "close-btn"
+          =msg.created_at
+          %p{:style => "font-size: 0.8em;"} 
+            =msg.content
 
 %script
-	$(document).ready(function() {
+  $(document).ready(function() {
 
-	$('.carousel').carousel({
-	interval: 3000
-	});
+  $('.carousel').carousel({
+  interval: 3000
+  });
 
 
 
-	});
+  });

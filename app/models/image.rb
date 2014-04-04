@@ -23,6 +23,6 @@ class Image < ActiveRecord::Base
      :s3_credentials => S3_CREDENTIALS, 
      :s3_protocol => "https"
 
-	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
 end
