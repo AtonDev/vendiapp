@@ -27,11 +27,12 @@ class Api::PhonegapItemsController < ApplicationController
     #  return
     #end
     #item.images << img
-    render :json => tmpFilePath
+    render :json => tmp
   end
 
   def add_info
-
+    Mailer.send_pginfo(params[:info])
+    render :json => {:status => "success"}
   end
 
 

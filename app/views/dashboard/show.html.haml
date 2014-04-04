@@ -1,252 +1,252 @@
--if signed_in?	
-	.container-fluid
-		.row
-			.col-lg-10.col-lg-offset-1
-				%h1.page-header Dashboard
-		.row
-			.col-lg-10.col-lg-offset-1
-				%h2.sub-header Messages
-				.table-responsive
-					%table.table.table-striped
-						%thead
-							%tr
-								%th Date 
-								%th Content
-								%th
-						%tbody
-							-@notifications.each do |msg|
-								%tr
-									%td 
-										=msg.created_at
-									%td 
-										=msg.content
-									%td 
-										=form_tag(:dismiss_message, :method => :get) do
-											=hidden_field_tag "msg[id]", msg.id
-											=submit_tag decode_entity("&times;"), :class => "close-btn", "aria-hidden" => "true"
-				%ul.pagination.pagination-sm
-					=will_paginate @notifications, :param_name => "notifications_page", container: false 
-							
-				
-		.row
-			.col-lg-10.col-lg-offset-1
-				%h2.sub-header Your items
-				%ul.nav.nav-tabs
-					%li.active
-						%a{"data-toggle" => "tab", href: "#selling"} Currently Selling
-					%li
-						%a{"data-toggle" => "tab", href: "#pending"} Pending Proposal
-				.tab-content
-					#selling.tab-pane.active 
-						.table-responsive
-							%table.table.table-striped.table-hover
-								%thead
-									%tr
-										%th Date due
-										%th Title
-										%th Vendi-bid
-										%th Description
+-if signed_in?  
+  .container-fluid
+    .row
+      .col-lg-10.col-lg-offset-1
+        %h1.page-header Dashboard
+    .row
+      .col-lg-10.col-lg-offset-1
+        %h2.sub-header Messages
+        .table-responsive
+          %table.table.table-striped
+            %thead
+              %tr
+                %th Date 
+                %th Content
+                %th
+            %tbody
+              -@notifications.each do |msg|
+                %tr
+                  %td 
+                    =msg.created_at
+                  %td 
+                    =msg.content
+                  %td 
+                    =form_tag(:dismiss_message, :method => :get) do
+                      =hidden_field_tag "msg[id]", msg.id
+                      =submit_tag decode_entity("&times;"), :class => "close-btn", "aria-hidden" => "true"
+        %ul.pagination.pagination-sm
+          =will_paginate @notifications, :param_name => "notifications_page", container: false 
+              
+        
+    .row
+      .col-lg-10.col-lg-offset-1
+        %h2.sub-header Your items
+        %ul.nav.nav-tabs
+          %li.active
+            %a{"data-toggle" => "tab", href: "#selling"} Currently Selling
+          %li
+            %a{"data-toggle" => "tab", href: "#pending"} Pending Proposal
+        .tab-content
+          #selling.tab-pane.active 
+            .table-responsive
+              %table.table.table-striped.table-hover
+                %thead
+                  %tr
+                    %th Date due
+                    %th Title
+                    %th Vendi-bid
+                    %th Description
 
-									%tbody
-										-@selling_items.each_with_index do |item, idx|
-											%tr{"onclick"=>"$('#sellingModal#{idx}').modal();"}
-												%td 
-													=item.sale_info.start_sale
-												%td 
-													=item.title
-												%td 
-													=item.sale_info.proposed_price
-												%td 
-													=item.description
+                  %tbody
+                    -@selling_items.each_with_index do |item, idx|
+                      %tr{"onclick"=>"$('#sellingModal#{idx}').modal();"}
+                        %td 
+                          =item.sale_info.start_sale
+                        %td 
+                          =item.title
+                        %td 
+                          =item.sale_info.proposed_price
+                        %td 
+                          =item.description
 
-						%ul.pagination.pagination-sm
-							=will_paginate @selling_items, :param_name => "selling_page",  container: false 
-						
-					#pending.tab-pane 
-						.table-responsive
-							%table.table.table-striped.table-hover
-								%thead
-									%tr
-										%th Proposal Date
-										%th Title
-										%th Vendi-bid
-										%th Description
+            %ul.pagination.pagination-sm
+              =will_paginate @selling_items, :param_name => "selling_page",  container: false 
+            
+          #pending.tab-pane 
+            .table-responsive
+              %table.table.table-striped.table-hover
+                %thead
+                  %tr
+                    %th Proposal Date
+                    %th Title
+                    %th Vendi-bid
+                    %th Description
 
-									%tbody
-										-@pending_proposals.each_with_index do |proposal,idx|
-											-item = proposal.item
-											%tr{"onclick"=>"$('#pendingModal#{idx}').modal();"}
-												%td 
-													=proposal.created_at
-												%td 
-													=item.title
-												%td 
-													=proposal.price
-												%td 
-													=item.description
+                  %tbody
+                    -@pending_proposals.each_with_index do |proposal,idx|
+                      -item = proposal.item
+                      %tr{"onclick"=>"$('#pendingModal#{idx}').modal();"}
+                        %td 
+                          =proposal.created_at
+                        %td 
+                          =item.title
+                        %td 
+                          =proposal.price
+                        %td 
+                          =item.description
 
-						%ul.pagination.pagination-sm
-							=will_paginate @pending_proposals, :param_name => "pending_page", container: false 
-		.row
-			.col-lg-10.col-lg-offset-1
-				%h2.sub-header Sneak Peek
-				.table-responsive
-					%table.table.table-hover.table-striped
-						%thead
-							%tr
-								%th Thumb
-								%th Title
-								%th Description
+            %ul.pagination.pagination-sm
+              =will_paginate @pending_proposals, :param_name => "pending_page", container: false 
+    .row
+      .col-lg-10.col-lg-offset-1
+        %h2.sub-header Sneak Peek
+        .table-responsive
+          %table.table.table-hover.table-striped
+            %thead
+              %tr
+                %th Thumb
+                %th Title
+                %th Description
 
-							%tbody
-								-@ledger_items.each_with_index do |item, idx|
-									%tr{"onclick"=>"$('#sneakPeekModal#{idx}').modal('toggle');", "data-target" => "bs.modal"}
-										%td 
-											=image_tag item.images.first.photo.url(:thumb), :class => "img-rounded"
-										%td 
-											=item.title
-										%td 
-											=item.description
-
-
-	-#--------------------------------------MODALS---------------------------------
-	-@selling_items.each_with_index do |item, idx|
-		-#------------------------------Modal for selling --------------------
-		.modal.fade{:id => "sellingModal#{idx}","aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-			.modal-dialog.modal-lg
-				.modal-content
-					.modal-header
-						%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
-						%h4#myModalLabel.modal-title 
-							=item.title
-					.modal-body
-						.row
-							.col-md-10.col-md-offset-1
-								.item-details
-									%h4 Description
-									%p
-										= item.description
-									%hr
-									%h4 Images
-									-item.images.each do |img|
-										.col-md-4
-											=image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
-									
-									=form_tag(:download_images, :method => :get) do 
-										=hidden_field_tag :id, item.id
-										=submit_tag "Download the images in original size.", :class => "btn btn-primary"
-									
-									%hr
-									%h4 
-										Vendi-bid of 
-										= item.sale_info.proposed_price
-										accepted
-									%p You have been approved to sell this item. After the item sells, press the "Sold!" button below, and a Vendi representative will be in contact with you to collect payment so the item can ship. 
-									%hr
-									=form_tag(:item_sold, :method => :get) do 
-										=hidden_field_tag :id, item.id
-										=submit_tag "Sold!", :class => "center-block btn-lg btn-primary"
-
-					.modal-footer
-						%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-					-#	%button.btn.btn-primary{:type => "button"} Save changes
-	-#------------------end of modal for curently-------------------------------
+              %tbody
+                -@ledger_items.each_with_index do |item, idx|
+                  %tr{"onclick"=>"$('#sneakPeekModal#{idx}').modal('toggle');", "data-target" => "bs.modal"}
+                    %td 
+                      =image_tag item.images.first.photo.url(:thumb), :class => "img-rounded"
+                    %td 
+                      =item.title
+                    %td 
+                      =item.description
 
 
-	-@pending_proposals.each_with_index do |proposal,idx|
-		-item = proposal.item
-		-#------------------------------Modal for pending --------------------
-		.modal.fade{:id => "pendingModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-			.modal-dialog.modal-lg
-				.modal-content
-					.modal-header
-						%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
-						%h4#myModalLabel.modal-title 
-							=item.title
-					.modal-body
-						.row
-							.col-md-10.col-md-offset-1
-								.item-details
-									%h4 Description
-									%p
-										= item.description
-									%hr
-									%h4 Images
-									-item.images.each do |img|
-										.col-md-4
-											=image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
-									
-									=form_tag(:download_images, :method => :get) do 
-										=hidden_field_tag :id, item.id
-										=submit_tag "Download the images in original size.", :class => "btn btn-primary"
-									
-									%hr
-									%h4 Pending
-									%p You have already placed a Vendi-bid on this item.  Your Vendi-bid is pending approval.
+  -#--------------------------------------MODALS---------------------------------
+  -@selling_items.each_with_index do |item, idx|
+    -#------------------------------Modal for selling --------------------
+    .modal.fade{:id => "sellingModal#{idx}","aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+            %h4#myModalLabel.modal-title 
+              =item.title
+          .modal-body
+            .row
+              .col-md-10.col-md-offset-1
+                .item-details
+                  %h4 Description
+                  %p
+                    = item.description
+                  %hr
+                  %h4 Images
+                  -item.images.each do |img|
+                    .col-md-4
+                      =image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
+                  
+                  =form_tag(:download_images, :method => :get) do 
+                    =hidden_field_tag :id, item.id
+                    =submit_tag "Download the images in original size.", :class => "btn btn-primary"
+                  
+                  %hr
+                  %h4 
+                    Vendi-bid of 
+                    = item.sale_info.proposed_price
+                    accepted
+                  %p You have been approved to sell this item. After the item sells, press the "Sold!" button below, and a Vendi representative will be in contact with you to collect payment so the item can ship. 
+                  %hr
+                  =form_tag(:item_sold, :method => :get) do 
+                    =hidden_field_tag :id, item.id
+                    =submit_tag "Sold!", :class => "center-block btn-lg btn-primary"
 
-					.modal-footer
-						%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-				-#		%button.btn.btn-primary{:type => "button"} Save changes
-		-#------------------end of modal for penging-------------------------------
-									
-	-@ledger_items.each_with_index do |item, idx|
-		-#----------------------------------------Modal for sneak peek------------------------
-		.modal.fade{:id => "sneakPeekModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-			.modal-dialog.modal-lg
-				.modal-content
-					.modal-header
-						%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
-						%h4#myModalLabel.modal-title 
-							=item.title
-					.modal-body
-						.row
-							.col-md-10.col-md-offset-1
-								.item-details
-									%h4 Description
-									%p
-										= item.description
-									%hr
-									%h4 Images
-									-item.images.each do |img|
-										.col-md-4
-											=image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
-									
-									=form_tag(:download_images, :method => :get) do 
-										=hidden_field_tag :id, item.id
-										=submit_tag "Download the images in original size.", :class => "btn btn-primary"
-									
-									%hr
-									%h4 Vendi-bid
-									%p Submit a Vendi-bid. This is the amount of money the owner expects to make after the item sells.  Remember your profit is the difference between the final selling price (after any fees from the marketplace where you sell the item) and the Vendi-bid. Do not consider the cost of shipping in your Vendi-bid. Vendi uses $6.00 flat-rate shipping, so <b>be sure to charge the buyer an additional $6.00.</b>
-									%p If your Vendi-bid is accepted, you will be expected to sell this item. Once the item sells, a Vendi representative will contact you to collect the Vendi-bid plus $6.00 so the item can ship.
-									%hr
-									=form_tag(:new_price_proposal, :method => :get) do
-										=hidden_field_tag "proposal[item_id]", item.id
-										.form-group
-											.col-sm-2
-												=label_tag :price, "Vendi-bid:", :class => "control-label"
-											.col-sm-3
-												=number_field_tag "proposal[price]", nil, :class => "form-control", :placeholder => "USD"
-										.col-sm-7
-											=submit_tag :submit, :class => "btn btn-primary"
-
-					.modal-footer
-						%button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-		-#------------------end of modal for sneak peek-------------------------------
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          -#  %button.btn.btn-primary{:type => "button"} Save changes
+  -#------------------end of modal for curently-------------------------------
 
 
+  -@pending_proposals.each_with_index do |proposal,idx|
+    -item = proposal.item
+    -#------------------------------Modal for pending --------------------
+    .modal.fade{:id => "pendingModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+            %h4#myModalLabel.modal-title 
+              =item.title
+          .modal-body
+            .row
+              .col-md-10.col-md-offset-1
+                .item-details
+                  %h4 Description
+                  %p
+                    = item.description
+                  %hr
+                  %h4 Images
+                  -item.images.each do |img|
+                    .col-md-4
+                      =image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
+                  
+                  =form_tag(:download_images, :method => :get) do 
+                    =hidden_field_tag :id, item.id
+                    =submit_tag "Download the images in original size.", :class => "btn btn-primary"
+                  
+                  %hr
+                  %h4 Pending
+                  %p You have already placed a Vendi-bid on this item.  Your Vendi-bid is pending approval.
 
-	:javascript
-		$('body').on('hidden.bs.modal', '.modal', function () {
-			$(this).removeData('bs.modal');
-		});
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        -#    %button.btn.btn-primary{:type => "button"} Save changes
+    -#------------------end of modal for penging-------------------------------
+                  
+  -@ledger_items.each_with_index do |item, idx|
+    -#----------------------------------------Modal for sneak peek------------------------
+    .modal.fade{:id => "sneakPeekModal#{idx}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+            %h4#myModalLabel.modal-title 
+              =item.title
+          .modal-body
+            .row
+              .col-md-10.col-md-offset-1
+                .item-details
+                  %h4 Description
+                  %p
+                    = item.description
+                  %hr
+                  %h4 Images
+                  -item.images.each do |img|
+                    .col-md-4
+                      =image_tag img.photo.url(:square), :class => "img-rounded", :style => "margin-top:10px; margin-bottom:20px;"
+                  
+                  =form_tag(:download_images, :method => :get) do 
+                    =hidden_field_tag :id, item.id
+                    =submit_tag "Download the images in original size.", :class => "btn btn-primary"
+                  
+                  %hr
+                  %h4 Vendi-bid
+                  %p Submit a Vendi-bid. This is the amount of money the owner expects to make after the item sells.  Remember your profit is the difference between the final selling price (after any fees from the marketplace where you sell the item) and the Vendi-bid. Do not consider the cost of shipping in your Vendi-bid. Vendi uses $6.00 flat-rate shipping, so <b>be sure to charge the buyer an additional $6.00.</b>
+                  %p If your Vendi-bid is accepted, you will be expected to sell this item. Once the item sells, a Vendi representative will contact you to collect the Vendi-bid plus $6.00 so the item can ship.
+                  %hr
+                  =form_tag(:new_price_proposal, :method => :get) do
+                    =hidden_field_tag "proposal[item_id]", item.id
+                    .form-group
+                      .col-sm-2
+                        =label_tag :price, "Vendi-bid:", :class => "control-label"
+                      .col-sm-3
+                        =number_field_tag "proposal[price]", nil, :class => "form-control", :placeholder => "USD"
+                    .col-sm-7
+                      =submit_tag :submit, :class => "btn btn-primary"
+
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+    -#------------------end of modal for sneak peek-------------------------------
 
 
+
+  :javascript
+    $('body').on('hidden.bs.modal', '.modal', function () {
+      $(this).removeData('bs.modal');
+    });
 
 
 
 
 
+
+  
 
 
 
