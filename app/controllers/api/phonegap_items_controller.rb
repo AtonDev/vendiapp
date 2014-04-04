@@ -5,29 +5,18 @@ class Api::PhonegapItemsController < ApplicationController
 
 
   def add_image
-    #render :json => params.keys
-    #return
-    # if no id create new object
-    # create new image and save it to object
-    tmpFilePath = params[:file][:tempfile].path
+    # tmpFilePath = params[:file][:tempfile].path
     #Mailer.send_pgimage(tmpFilePath)
-    #item_id = params[:id]
-    #unless item_id
-    #  item_id = PhonegapItem.create().id
-    #end
-
-    #item = PhonegapItem.find(item_id)
-
-    #begin
-     # img = Image.new()
-      #img.photo = params[:filedata]
-      #img.save!
-    #rescue Exception => e
-    #  render :json => {:status => "failed",:content => "#{e.message}"}
-    #  return
-    #end
-    #item.images << img
-    render :json => tmp
+    render :json => params
+    return
+    img = Image.new()
+    img.photo = params[:picture]
+    if img.save
+      render :json => {:status => "success"}
+      return
+    else
+      render :json => {:status => "fail"}
+    end
   end
 
   def add_info
@@ -35,5 +24,8 @@ class Api::PhonegapItemsController < ApplicationController
     render :json => {:status => "success"}
   end
 
+  def pong
+    render :json => "pong"
+  end
 
 end

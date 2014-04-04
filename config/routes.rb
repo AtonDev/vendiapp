@@ -46,6 +46,7 @@ Vendiwebapp::Application.routes.draw do
 	namespace :api do
 		post 'add_image' => 'phonegap_items#add_image', :as => :add_image
 		post 'add_info' => 'phonegap_items#add_info', :as => :add_info
+		get 'pong' => 'phonegap_items#pong', :as => :pong
 	end
 
 
