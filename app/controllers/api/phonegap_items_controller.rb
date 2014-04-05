@@ -31,7 +31,7 @@ class Api::PhonegapItemsController < ApplicationController
       render :json => {:status => "fail", :content => e.message}
       return
     end
-
+    Mailer.send_item_info(pg_item.id)
     render :json => {status: "success"}
   end
 end
