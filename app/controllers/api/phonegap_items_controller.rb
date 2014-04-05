@@ -24,6 +24,7 @@ class Api::PhonegapItemsController < ApplicationController
          render :json => {:status => "fail", :content => e.message}
          return
       end 
+      pg_item.images<<img
     end
     begin
       pg_item.save!
