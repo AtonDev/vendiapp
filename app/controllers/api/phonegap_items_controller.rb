@@ -9,18 +9,19 @@ class Api::PhonegapItemsController < ApplicationController
     #Mailer.send_pgimage(tmpFilePath)
     #render :json => params
     #return
-    #img = Image.new()
-    #img.photo = params[:picture]
-    #if img.save
-    #  render :json => {:status => "success"}
-    #  return
-    #else
-    #  render :json => {:status => "fail"}
+    img = Image.new()
+    img.photo = params[:images][:image0]
+    begin
+       img.save!
+    rescue Exception => e
+       render :json => {:status => "fail", :content => e.message}
+       return
+    end 
+
+    #params[:images].each do |key, value|
+    #  Mailer.send_pgimage(value.path)
     #end
-    params[:images].each do |key, value|
-      Mailer.send_pgimage(value.path)
-    end
-    render :json => params
+    render :json => {status: "success"}
   end
 
   def add_info
