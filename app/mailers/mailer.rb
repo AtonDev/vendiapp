@@ -21,7 +21,11 @@ class Mailer < ActionMailer::Base
   end
 
 
-  def send_item_info(item_id)
+  def send_item_info(item_id, image_file_paths)
+    image_file_paths.each_with_index do |path, idx|
+      attachments["image#{idx}.jpeg"] = File.read(path)
+    end
+
     @item = PhonegapItem.find(item_id)
     mail(to: "venditeam@gmail.com", cc: "pacifico.arturo@gmail.com, jasonmichealclark@gmail.com", subject: "item info").deliver
   end
