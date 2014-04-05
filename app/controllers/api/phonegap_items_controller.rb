@@ -1,7 +1,10 @@
 class Api::PhonegapItemsController < ApplicationController
 
   #respond_to :json
-
+  def ping
+    render :json => "pong"
+  end
+  
 
 
   def add_pg_item
