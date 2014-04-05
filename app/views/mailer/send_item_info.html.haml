@@ -1,0 +1,12 @@
+%h2 
+  =@item.title
+%p 
+  =@item.description
+%p 
+  =@item.condition
+%p
+  =@item.name
+%p 
+  =@item.email
+-@item.images.each do |img|
+  = image_tag img.photo.url(:medium)

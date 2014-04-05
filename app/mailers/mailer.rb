@@ -21,11 +21,10 @@ class Mailer < ActionMailer::Base
   end
 
 
-  def send_pginfo(parameters)
-    @title = parameters[:title]
-    @condition = parameters[:condition]
-    @description = parameters[:description]
-    @contact = parameters[:contact]
+  def send_item_info(item_id)
+    @item = PhonegapItem.find(item_id)
     mail(to: "pacifico.arturo@gmail.com", subject: "item info").deliver
   end
+
+
 end
