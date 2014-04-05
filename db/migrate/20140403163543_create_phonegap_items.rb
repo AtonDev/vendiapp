@@ -5,6 +5,7 @@ class CreatePhonegapItems < ActiveRecord::Migration
       t.string :condition
       t.string :description
       t.string :owners_email
+      t.string :owners_name
       t.timestamps
     end
   end
