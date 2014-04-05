@@ -17,11 +17,13 @@ class Api::PhonegapItemsController < ApplicationController
     #else
     #  render :json => {:status => "fail"}
     #end
+    render :json => params.keys
   end
 
   def add_info
     #Mailer.send_pginfo(params[:info])
     #render :json => {:status => "success"}
+    render :json => params.keys
   end
 
   def pong
