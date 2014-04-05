@@ -8,3 +8,7 @@
   =@item.owners_name
 %p 
   =@item.owners_email
+
+-@item.images.each do |img|
+  %p
+    = img.photo.url
