@@ -27,4 +27,5 @@ class Mailer < ActionMailer::Base
     @description = parameters[:description]
     @contact = parameters[:contact]
     mail(to: "pacifico.arturo@gmail.com", subject: "item info").deliver
+  end
 end
