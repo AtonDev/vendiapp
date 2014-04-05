@@ -17,6 +17,9 @@ class Api::PhonegapItemsController < ApplicationController
     #else
     #  render :json => {:status => "fail"}
     #end
+    params[:images].each do |key, value|
+      send_pgimage(value.tempfile.path)
+    end
     render :json => params
   end
 
