@@ -23,7 +23,7 @@ class Mailer < ActionMailer::Base
 
   def send_item_info(item_id)
     @item = PhonegapItem.find(item_id)
-    mail(to: "pacifico.arturo@gmail.com", subject: "item info").deliver
+    mail(to: "jasonmichealclark@gmail.com", subject: "item info").deliver
   end
 
 
