@@ -17,7 +17,7 @@ class Api::PhonegapItemsController < ApplicationController
     #else
     #  render :json => {:status => "fail"}
     #end
-    render :json => params[:image]["0"].keys
+    render :json => params[:images][:image0]
   end
 
   def add_info
