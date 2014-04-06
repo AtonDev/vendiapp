@@ -20,7 +20,7 @@ class Api::PhonegapItemsController < ApplicationController
     pg_item.owners_email = params[:email]
     if params[:images]
       params[:images].each do |key, value|
-        render :json => value.class
+        render :json => value.class.name
         return
         img = Image.new()
         begin  
