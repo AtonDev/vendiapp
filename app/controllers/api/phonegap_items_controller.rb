@@ -30,6 +30,9 @@ class Api::PhonegapItemsController < ApplicationController
         end 
         pg_item.images<<img
       end
+    else
+      render :json => {:status => "fails", :contant => "no imgaes in params[:images] is empty"}
+      return
     end
     begin
       pg_item.save!
