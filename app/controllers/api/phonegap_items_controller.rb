@@ -18,16 +18,18 @@ class Api::PhonegapItemsController < ApplicationController
     pg_item.description = params[:description]
     pg_item.owners_name = params[:name]
     pg_item.owners_email = params[:email]
-    params[:images].each do |key, value|
-      img = Image.new()
-      begin  
-        img.photo = value
-        img.save!
-      rescue Exception => e
-        render :json => {:status => "fail", :type => "img upload and save failed", :content => e.message, :backtrace => e.backtrace}
-        return
-      end 
-      pg_item.images<<img
+    if params[:images]
+      params[:images].each do |key, value|
+        img = Image.new()
+        begin  
+          img.photo = value
+          img.save!
+        rescue Exception => e
+          render :json => {:status => "fail", :type => "img upload and save failed", :content => e.message, :backtrace => e.backtrace}
+          return
+        end 
+        pg_item.images<<img
+      end
     end
     begin
       pg_item.save!
