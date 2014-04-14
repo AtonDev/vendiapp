@@ -8,10 +8,6 @@ class Api::PhonegapItemsController < ApplicationController
 
 
   def add_pg_item
-    # tmpFilePath = params[:file][:tempfile].path
-    #Mailer.send_pgimage(tmpFilePath)
-    #render :json => params
-    #return
     pg_item = PhonegapItem.new()
     pg_item.title = params[:title]
     pg_item.condition = params[:condition]
@@ -25,20 +21,27 @@ class Api::PhonegapItemsController < ApplicationController
           img.photo = value
           img.save!
         rescue Exception => e
-          render :json => {:status => "fail", :type => "img upload and save failed", :content => e.message, :backtrace => e.backtrace}
+          render :json => { :status => "fail", 
+                            :type => "img upload and save failed", 
+                            :content => e.message, 
+                            :backtrace => e.backtrace}
           return
         end 
         pg_item.images<<img
       end
     else
-      render :json => {:status => "fails", :contant => "no imgaes in params[:images] is empty"}
+      render :json => { :status => "fails", 
+                        :contant => "no imgaes in params[:images] is empty"}
       return
     end
     begin
       pg_item.save!
       Mailer.send_item_info(pg_item.id)
     rescue Exception => e
-      render :json => {:status => "fail", :type => "item save failed", :content => e.message, :backtrace => e.backtrace}
+      render :json => { :status => "fail", 
+                        :type => "item save failed", 
+                        :content => e.message, 
+                        :backtrace => e.backtrace}
       return
     end
     
