@@ -85,6 +85,9 @@ group :production do
 	#Sets assets in production
 	gem 'rails_12factor'
 
+  #multithreaded webserver
+  gem 'unicorn'
+
 end
 
 # security update
