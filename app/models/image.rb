@@ -13,12 +13,13 @@
 #
 
 class Image < ActiveRecord::Base
-  belongs_to :item
-  has_attached_file :photo, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
-  }, :storage => "s3", 
+	belongs_to :item
+  belongs_to :phonegap_item
+	has_attached_file :photo, styles: {
+		thumb: '100x100>',
+		square: '200x200#',
+		medium: '300x300>'
+	}, :storage => "s3", 
      :s3_credentials => S3_CREDENTIALS, 
      :s3_protocol => "https"
 

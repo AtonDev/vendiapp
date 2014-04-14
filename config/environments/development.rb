@@ -52,6 +52,7 @@ Vendiwebapp::Application.configure do
     }
   }
 
+  Paperclip.options[:content_type_mappins] = {png: "image/png"}
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000'}
 

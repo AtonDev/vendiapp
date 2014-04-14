@@ -41,6 +41,17 @@
 #
 
 Vendiwebapp::Application.routes.draw do
+
+	## Mobile API
+	namespace :api do
+		post 'add_item' => 'phonegap_items#add_pg_item', :as => :add_item
+		get 'ping' => 'phonegap_items#ping', :as => :ping
+	end
+
+
+
+
+	## Site routes
 	root 'welcome#index'
 
 	devise_for :sellers, :controllers => { registrations: 'sellers/registrations' }
