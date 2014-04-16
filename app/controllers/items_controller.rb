@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
     send_data(zip_data, 
               :type => 'application/zip', 
               :filename => zip_name)
+    FileUtils.rm_r zip_path
 
   end
 
