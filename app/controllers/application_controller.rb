@@ -1,5 +1,6 @@
 require 'will_paginate/array'
 require 'zip'
+require 'fileutils'
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
