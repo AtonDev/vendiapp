@@ -19,6 +19,7 @@ class Api::PhonegapItemsController < ApplicationController
     zipcode = params[:zipcode]
     if zipcode.nil?
       zipcode = [latitude.to_f, longitude.to_f].to_zip
+    end
     if params[:images]
       params[:images].each do |key, value|
         img = Image.new()
