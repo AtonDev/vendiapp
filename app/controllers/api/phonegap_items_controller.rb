@@ -14,6 +14,11 @@ class Api::PhonegapItemsController < ApplicationController
     pg_item.description = params[:description]
     pg_item.owners_name = params[:name]
     pg_item.owners_email = params[:email]
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    zipcode = params[:zipcode]
+    if zipcode.nil?
+      zipcode = [latitude.to_f, longitude.to_f].to_zip
     if params[:images]
       params[:images].each do |key, value|
         img = Image.new()
@@ -36,7 +41,7 @@ class Api::PhonegapItemsController < ApplicationController
     end
     begin
       pg_item.save!
-      Mailer.send_item_info(pg_item.id)
+      Mailer.send_item_info(pg_item.id, zipcode)
     rescue Exception => e
       render :json => { :status => "fail", 
                         :type => "item save failed", 
