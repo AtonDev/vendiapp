@@ -7,10 +7,12 @@
 
 
       .col-sm-12.call
-        .jumbotron
+        .col-sm-2
+        .col-sm-8.jumbotron
           .call
             %h2 Have things to sell, but don't want to do it yourself?
             .text-center
-              =button_to "Get your stuff sold with Vendi", new_app_subscriber_path,  {:method => "get", class: "btn-lg btn-primary", :style => "width: 100%;"}
+              =button_to "Get your stuff sold with Vendi", new_app_subscriber_path,  {:method => "get", class: "btn-lg btn-primary", :style => "width: 60%;"}
+        .col-sm-2
         
   
