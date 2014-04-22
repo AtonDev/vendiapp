@@ -25,7 +25,7 @@ class Api::PhonegapItemsController < ApplicationController
         img = Image.new()
         begin  
           img.photo = value
-          img.delay.save!
+          img.save!
         rescue Exception => e
           render :json => { :status => "fail", 
                             :type => "img upload and save failed", 
