@@ -90,11 +90,16 @@ group :production do
 
 end
 
+
 #location position convertions gem
 gem 'area'
 
 # security update
 gem 'psych', '~> 2.0.5'
+
+
+
+gem 'delayed_job_active_record'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
