@@ -25,7 +25,7 @@ class Api::PhonegapItemsController < ApplicationController
         img = Image.new()
         begin  
           img.photo = value
-          img.save!
+          img.delay.save
         rescue Exception => e
           render :json => { :status => "fail", 
                             :type => "img upload and save failed", 
@@ -33,7 +33,7 @@ class Api::PhonegapItemsController < ApplicationController
                             :backtrace => e.backtrace}
           return
         end 
-        pg_item.images<<img
+        #pg_item.images<<img
       end
     else
       render :json => { :status => "fails", 
@@ -42,7 +42,7 @@ class Api::PhonegapItemsController < ApplicationController
     end
     begin
       pg_item.save!
-      Mailer.delay.send_item_info(pg_item.id, zipcode)
+      #Mailer.delay.send_item_info(pg_item.id, zipcode)
     rescue Exception => e
       render :json => { :status => "fail", 
                         :type => "item save failed", 
