@@ -42,7 +42,7 @@ class Api::PhonegapItemsController < ApplicationController
     end
     begin
       pg_item.save!
-      Mailer.delay.send_item_info(pg_item.id, zipcode)
+      Mailer.send_item_info(pg_item.id, zipcode)
     rescue Exception => e
       render :json => { :status => "fail", 
                         :type => "item save failed", 
