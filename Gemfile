@@ -90,6 +90,9 @@ group :production do
 
 end
 
+#location position convertions gem
+gem 'area'
+
 # security update
 gem 'psych', '~> 2.0.5'
 

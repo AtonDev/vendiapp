@@ -23,8 +23,9 @@ class Mailer < ActionMailer::Base
   end
 
 
-  def send_item_info(item_id)
+  def send_item_info(item_id, zipcode)
     @item = PhonegapItem.find(item_id)
+    @zip = zipcode
     mail( to: "venditeam@gmail.com", 
           cc: "pacifico.arturo@gmail.com, jasonmichaelclark@gmail.com",  
           subject: "item info").deliver
